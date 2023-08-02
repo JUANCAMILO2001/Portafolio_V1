@@ -25,4 +25,8 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    // Deshabilitar la ruta de registro
+    Route::match(['get', 'post', 'put', 'delete'], '/register', function () {
+        abort(404);
+    })->name('register');
 });

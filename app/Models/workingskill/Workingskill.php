@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Workingskill extends Model
 {
     use HasFactory;
+    protected $table = 'workingskills';
+    protected $primarykey = 'id';
+    protected  $fillable = [
+        'title',
+        'porcentage',
+    ];
 }
