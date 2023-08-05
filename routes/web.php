@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\User\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.index');
 });
 
 Route::middleware([
@@ -23,10 +24,14 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('admin.dashboard.index');
     })->name('dashboard');
     // Deshabilitar la ruta de registro
     Route::match(['get', 'post', 'put', 'delete'], '/register', function () {
         abort(404);
     })->name('register');
+
+    //Rutas admin
+    //Rutas admin Usuario
+    Route::resource('admin/users', UsersController::class)->names('admin.users');
 });
