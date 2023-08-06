@@ -17,10 +17,10 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Juan Camilo',
             'lastname' => 'Rodriguez Ramirez',
-            'email' => 'camilo@gmail.com',
+            'email' => 'juan.camilorodrigez@gmail.com',
             'password' => Hash::make('admin'),
             'phone' => '+57 304 268 65 88',
-            'address' => 'Calle 68 F Sur # 49G - 98',
+            'address' => 'CLL 68 F Sur #49G - 98',
             'descriptionprofesional' => 'Software Developer',
         ]);
     }

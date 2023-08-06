@@ -12,6 +12,8 @@ class Socialnetwork extends Model
     protected $primarykey = 'id';
     protected  $fillable = [
         'name',
+        'link',
         'logo',
+        'color',
     ];
 }

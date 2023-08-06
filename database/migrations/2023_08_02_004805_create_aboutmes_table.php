@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('aboutmes', function (Blueprint $table) {
             $table->id();
-            $table->longText('description');
             $table->string('title_skill');
             $table->longText('description_skill');
             $table->string('color_skill');

@@ -93,25 +93,36 @@
              line-height: 11rem;
          }
         }
+        @foreach($socialnetworks as $socialnetwork)
+            #color-icon-user-{{$socialnetwork->id}}{
+                color: {{$socialnetwork->color}};
+            }
+            .profile-details .intro .social #color-icon-user-{{$socialnetwork->id}}:hover{
+                background-color: {{$socialnetwork->color}};
+                color: #ddd;
+            }
+        @endforeach
     </style>
 </head>
 <body>
 <div class="container">
-    <div class="profile-p1">
+    @foreach($users as $user)
+        <div class="profile-p1">
         <div class="profile-card">
             <div class="profile-pic">
-                <img src="{{asset('user/imagen/user.jpeg')}}" alt="user avatar">
+                <img src="{{asset('storage/'.$user->profile_photo_path)}}" alt="user avatar">
             </div>
             <div class="profile-details">
                 <div class="intro">
-                    <h2>Juan Camilo Rodriguez Ramirez</h2>
-                    <h4>Software Developer</h4>
-                    <div class="social">
-                        <a href="#"><i class="fab fa-facebook " id="color-icon-user-1"></i></a>
-                        <a href="#"><i class="fab fa-twitter" id="color-icon-user-2"></i></a>
-                        <a href="#"><i class="fa-brands fa-github" id="color-icon-user-3"></i></a>
-                        <a href="#"><i class="fab fa-linkedin" id="color-icon-user-4"></i></a>
-                    </div>
+                    <h2>{{$user->name}} {{$user->lastname}}</h2>
+                    <h4>{{$user->descriptionprofesional}}</h4>
+                        <div class="social">
+                            @foreach($socialnetworks as $socialnetwork)
+                                <a href="{{$socialnetwork->link}}" title="{{$socialnetwork->name}}">
+                                    <i class="{{$socialnetwork->logo}} " id="color-icon-user-{{$socialnetwork->id}}"></i>
+                                </a>
+                            @endforeach
+                        </div>
                 </div>
                 <div class="contact-info">
                     <div class="row">
@@ -120,7 +131,7 @@
                         </div>
                         <div class="content">
                             <span>Teléfono:</span>
-                            <h5>+57 304 268 65 88</h5>
+                            <h5>{{$user->phone}}</h5>
                         </div>
                     </div>
                     <div class="row">
@@ -129,7 +140,7 @@
                         </div>
                         <div class="content">
                             <span>Correo eléctronico:</span>
-                            <h5>juan.camilorodrigez@gmail.com</h5>
+                            <h5>{{$user->email}}</h5>
                         </div>
                     </div>
                     <div class="row">
@@ -138,7 +149,7 @@
                         </div>
                         <div class="content">
                             <span>Dirección:</span>
-                            <h5>Calle falsa 12 #63-55</h5>
+                            <h5>{{$user->address}}</h5>
                         </div>
                     </div>
                     <div class="row">
@@ -147,16 +158,17 @@
                         </div>
                         <div class="content">
                             <span>Año de nacimiento:</span>
-                            <h5>06 Apr, 2001</h5>
+                            <h5>{{$user->birthdate}}</h5>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <button class="download-btn"><i class="fa fa-download"></i> Descargar CV</button>
+                    <a href="{{asset('storage/' . $user->cv)}}" download="" class="download-btn"><i class="fa fa-download"></i> Descargar CV</a>
                 </div>
             </div>
         </div>
     </div>
+    @endforeach
     <div>
         <nav class="asidebar">
             <ul>
@@ -206,26 +218,13 @@
         <!-- About section -->
         <div class="about sec" id="about-me-link">
             <h1>Sobre Mi</h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipiscing elit per cursus,
-                facilisi est ligula nunc magnis parturient netus sapien. Lacus dignissim
-                cras fringilla aenean sodales purus hendrerit metus ullamcorper, lacinia
-                vehicula ultrices non nulla pellentesque tempor morbi. Turpis nam dictumst
-                libero egestas faucibus luctus sollicitudin volutpat eget felis malesuada
-                curae consequat, tempus quis ornare at iaculis quisque facilisis eu
-                etiam penatibus sociosqu ridiculus. Taciti aptent magna donec
-                tortor sociis rhoncus massa enim tincidunt sagittis himenaeos
-                suscipit hac pulvinar neque, primis bibendum orci elementum inceptos
-                justo vulputate fames ultricies vitae nibh eleifend suspendisse. Maecenas
-                convallis lectus laoreet dui mi congue leo viverra nisl euismod posuere velit
-                potenti, sem porta aliquet pretium mus placerat augue arcu nascetur eros tristique
-                cubilia. Aliquam tellus litora duis id vivamus, et porttitor scelerisque fermentum
-                dapibus, cum quam mauris nisi. Commodo interdum phasellus erat habitasse conubia in
-                odio a varius semper, venenatis nostra platea sed ut nullam accumsan class auctor nec,
-                feugiat curabitur mattis ante senectus dis torquent risus montes. Imperdiet blandit
-                condimentum ad integer mollis vestibulum vel fusce pharetra natoque urna, praesent ac proin
-                molestie rutrum lobortis diam habitant gravida dictum.
-            </p>
+            @foreach($users as $user)
+
+                <p>
+                    {{$user->descriptionAboutme}}
+                </p>
+            @endforeach
+
             <h2>¿Qué hago?</h2>
             <div class="work">
                 <div class="workbox">

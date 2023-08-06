@@ -1,8 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+//Rutas de usuario
+use App\Http\Controllers\User\IndexController;
+//Rutas de ADMIN
 use App\Http\Controllers\Admin\User\UsersController;
-
+use App\Http\Controllers\Admin\Socialnetworks\SocialnetworksController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +17,7 @@ use App\Http\Controllers\Admin\User\UsersController;
 |
 */
 
-Route::get('/', function () {
-    return view('user.index');
-});
+Route::get('/', [IndexController::class, 'index'])->name('user.index');
 
 Route::middleware([
     'auth:sanctum',
@@ -34,4 +35,5 @@ Route::middleware([
     //Rutas admin
     //Rutas admin Usuario
     Route::resource('admin/users', UsersController::class)->names('admin.users');
+    Route::resource('admin/socialnetworks', SocialnetworksController::class)->names('admin.socialnetworks');
 });

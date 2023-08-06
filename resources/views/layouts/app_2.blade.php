@@ -8,23 +8,27 @@
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{url('admin/plugins/fontawesome-free/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="{{url('admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
     <!-- iCheck -->
-    <link rel="stylesheet" href="{{url('admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
     <!-- JQVMap -->
-    <link rel="stylesheet" href="{{url('admin/plugins/jqvmap/jqvmap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/plugins/jqvmap/jqvmap.min.css')}}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{url('admin/dist/css/adminlte.min.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/dist/css/adminlte.min.css')}}">
     <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="{{url('admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
     <!-- Daterange picker -->
-    <link rel="stylesheet" href="{{url('admin/plugins/daterangepicker/daterangepicker.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/plugins/daterangepicker/daterangepicker.css')}}">
     <!-- summernote -->
-    <link rel="stylesheet" href="{{url('admin/plugins/summernote/summernote-bs4.min.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/plugins/summernote/summernote-bs4.min.css')}}">
+    <!-- summernote -->
+    <link rel="stylesheet" href="{{asset('admin/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('user/css/fontawesome-free-6.4.0-web/css/all.min.css')}}">
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <form action="{{route('logout')}}" method="post" id="cerrar">
@@ -56,11 +60,13 @@
                     <i class="fa fa-power-off" aria-hidden="true"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                    <div class="card card-widget widget-user" style="margin-bottom: 0;">
-                        <div class="widget-user-header bg-info">
+                    <div class="card card-widget widget-user card-special">
+                        <div class="widget-user-header text-white" style="background: url('{{asset('admin/dist/img/photo1.png')}}') center center;">
                         </div>
                         <div class="widget-user-image">
-                            <img class="img-circle elevation-2" src="{{asset('admin/dist/img/user1-128x128.jpg')}}" alt="User Avatar">
+                            <div class="img-circle-special">
+                                <img class="img-special-circle"  src="{{asset('storage/' . auth()->user()->profile_photo_path)}}" alt="User Avatar">
+                            </div>
                         </div>
                         <div class="card-footer">
                             <div class="text-center">
@@ -90,7 +96,9 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="{{asset('admin/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
+                    <div class="aside-img-special">
+                        <img class="aside-special-img" src="{{asset('storage/' . auth()->user()->profile_photo_path)}}"  alt="User Image">
+                    </div>
                 </div>
                 <div class="info">
                     <a href="{{route('dashboard')}}" class="d-block">{{auth()->user()->name}} {{auth()->user()->lastname}}</a>
@@ -98,16 +106,16 @@
             </div>
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <li class="nav-item menu-open">
-                        <a href="{{route('dashboard')}}" class="nav-link active">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <li class="nav-item">
+                        <a href="{{route('dashboard')}}" class="nav-link @if($_SERVER['REQUEST_URI'] === "/dashboard") active @endif">
+                            <i class="nav-icon fa fa-home"></i>
                             <p>
                                 Inicio
                             </p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/" class="nav-link">
+                        <a href="{{route('user.index')}}" class="nav-link @if($_SERVER['REQUEST_URI'] === "/") active @endif">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Inicio Portafolio
@@ -117,27 +125,20 @@
                     <li class="nav-header">Opciones del sistema</li>
                     <!--Menu de Usuario-->
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{route('admin.users.index')}}" class="nav-link @if($_SERVER['REQUEST_URI'] === "/admin/users") active @endif">
                             <i class="fa fa-user nav-icon" aria-hidden="true"></i>
                             <p>
                                 Usuario
-                                <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{route('admin.users.index')}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Configuraciones</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Redes sociales</p>
-                                </a>
-                            </li>
-                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('admin.socialnetworks.index')}}" class="nav-link @if($_SERVER['REQUEST_URI'] === "/admin/socialnetworks") active @endif">
+                            <i class="fa fa-heart nav-icon"></i>
+                            <p>
+                                Redes Sociales
+                            </p>
+                        </a>
                     </li>
                     <!--Menu de Resumen-->
                     <li class="nav-item">

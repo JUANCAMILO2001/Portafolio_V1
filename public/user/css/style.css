@@ -20,18 +20,6 @@
 body{
     background: linear-gradient(45deg, var(--purple),var(--dark-magenta));
 }
-#color-icon-user-1{
-    color: var(--blue);
-}
-#color-icon-user-2{
-    color: var(--skyblue);
-}
-#color-icon-user-3{
-    color: var(--dark-pink);
-}
-#color-icon-user-4{
-    color: var(--light-blue);
-}
 .color-user-cont-1{
     color: var(--dark-magenta);
 }
@@ -143,7 +131,7 @@ body{
     top: 0;
     z-index: 1;
   }
-  
+
   .content-principal {
     margin-top: 0;
     z-index: 0;
@@ -218,23 +206,6 @@ body{
     transform: scale(1.2);
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
-.profile-details .intro .social #color-icon-user-1:hover{
-    background-color: var(--blue);
-    color: #ddd;
-}
-.profile-details .intro .social #color-icon-user-2:hover{
-    background-color: var(--skyblue);
-    color: #ddd;
-}
-.profile-details .intro .social #color-icon-user-3:hover{
-    background-color: var(--dark-pink);
-    color: #ddd;
-}
-.profile-details .intro .social #color-icon-user-4:hover{
-    background-color: var(--light-blue);
-    color: #ddd;
-}
-
 .profile-card .contact-info{
     background-color: #1d1d1d;
     padding: 15px;
@@ -296,7 +267,7 @@ body{
     margin-bottom: 20px;
     padding: 2rem 3rem;
     border-radius: 10px;
-    
+
 }
 .navbar .link-nav{
     background: #222;
@@ -526,7 +497,7 @@ body{
 }
 /*Agregar aqui las nuevas seciones*/
 .special-section{
-    position: relative; 
+    position: relative;
     display: flex;
     justify-content: end;
     width: 100%;
@@ -599,7 +570,7 @@ body{
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
   }
-  
+
   .prueba-lineTime{
     position: relative;
     margin-left: 15px;
@@ -628,10 +599,10 @@ body{
     top: 4px;
     margin-left: 5px;
   }
-  
+
 /*Resposive Design*/
 @media(max-width:768px) {
-    
+
     .profile-card{
         padding: 0rem;
         position: sticky;
@@ -665,7 +636,7 @@ body{
         grid-template-columns: repeat(1,1fr);
         grid-template-rows: repeat(4,auto);
     }
-    
+
 }
 @media(max-width:375px) {
     .work .workbox {

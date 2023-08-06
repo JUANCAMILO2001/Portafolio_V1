@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('socialnetworks', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('link');
             $table->string('logo');
+            $table->string('color');
             $table->timestamps();
         });
     }
