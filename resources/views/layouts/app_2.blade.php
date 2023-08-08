@@ -28,6 +28,7 @@
     <!-- summernote -->
     <link rel="stylesheet" href="{{asset('admin/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('user/css/fontawesome-free-6.4.0-web/css/all.min.css')}}">
+    @yield('style')
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -137,6 +138,14 @@
                             <i class="fa fa-heart nav-icon"></i>
                             <p>
                                 Redes Sociales
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('admin.aboutmes.index')}}" class="nav-link @if($_SERVER['REQUEST_URI'] === "/admin/aboutmes") active @endif">
+                            <i class="fa fa-heart nav-icon"></i>
+                            <p>
+                                Qué Hago
                             </p>
                         </a>
                     </li>
@@ -308,5 +317,6 @@
 <script src="{{url('admin/dist/js/adminlte.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{url('admin/dist/js/demo.js')}}"></script>
+@yield('js')
 </body>
 </html>

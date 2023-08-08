@@ -76,7 +76,10 @@
                             <div class="row">
                                 <div class="col-12">
                                     <label for="aboutMe">Sobre mi</label>
-                                    <p id="aboutMe">{{$user->descriptionAboutme}}</p>
+                                    <div>
+                                        {!!$user->descriptionAboutme!!}
+                                    </div>
+                                    <!--<p id="aboutMe"></p>-->
                                 </div>
                             </div>
                         </div>
@@ -169,8 +172,8 @@
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <label for="descriptionAboutme">Sobre mi</label>
-                                <textarea class="form-control form-control-border" name="descriptionAboutme" id="descriptionAboutme">
+                                <label for="summernotes">Sobre mi</label>
+                                <textarea cols="30" rows="30" name="descriptionAboutme" id="summernotes">
                                 </textarea>
                             </div>
                         </div>
@@ -304,10 +307,10 @@
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <label for="descriptionAboutme">Sobre Mi</label>
-                                <textarea class="form-control form-control-border" name="descriptionAboutme" id="descriptionAboutme">
-                                    {{$user->descriptionAboutme}}
-                                </textarea>
+                                <label for="summernote">Sobre Mi</label>
+
+                                <textarea cols="30" rows="30" name="descriptionAboutme" id="summernote">{{$user->descriptionAboutme}}</textarea>
+
                             </div>
                         </div>
                     </div>
@@ -323,4 +326,24 @@
         </div>
     </div>
 </div>
+@endsection
+@section('style')
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+@endsection
+@section('js')
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <script>
+        $('#summernote').summernote({
+            placeholder: 'Sobre Mi',
+            tabsize: 2,
+            height: 250
+        });
+    </script>
+    <script>
+        $('#summernotes').summernote({
+            placeholder: 'Descripcion...',
+            tabsize: 2,
+            height: 250
+        });
+    </script>
 @endsection

@@ -28,23 +28,28 @@ class SocialnetworksController extends Controller
         return redirect()->route('admin.socialnetworks.index')->with('success', 'La red social se ha creado correctamente.');
     }
 
-    public function show(string $id)
+    public function edit(string $socialnetwork)
     {
-        //
+        Socialnetwork::all();
+        return view('admin.socialnetworks.index', compact('socialnetwork'));
     }
 
-    public function edit(string $id)
+    public function update(Request $request, Socialnetwork $socialnetwork)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'link' => 'required',
+            'color' => 'required',
+            'logo' => 'required',
+        ]);
+        $data = $request->all();
+        $socialnetwork->update($data);
+        return redirect()->route('admin.socialnetworks.index')->with('success', 'La res social se edito con éxito!');
     }
 
-    public function update(Request $request, string $id)
+    public function destroy(Socialnetwork $socialnetwork)
     {
-        //
-    }
-
-    public function destroy(string $id)
-    {
-        //
+        $socialnetwork->delete();
+        return redirect()->route('admin.socialnetworks.index')->with('error', 'La red social se elimino con exito.');
     }
 }

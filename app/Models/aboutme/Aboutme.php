@@ -11,7 +11,6 @@ class Aboutme extends Model
     protected $table = 'aboutmes';
     protected $primarykey = 'id';
     protected  $fillable = [
-        'description',
         'title_skill',
         'description_skill',
         'color_skill',

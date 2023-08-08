@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio template</title>
+    <link rel="icon" href="{{asset('logo_portafolio.png')}}" type="image/png">
     <link rel="stylesheet" href="{{asset('user/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('user/css/fontawesome-free-6.4.0-web/css/all.min.css')}}">
     <style>
@@ -102,6 +103,20 @@
                 color: #ddd;
             }
         @endforeach
+        #prueba-12 span{
+            color: #555!important;
+        }
+
+        #work-special p{
+            color: #555!important;
+        }
+        #work-special p span{
+            color: #555!important;
+        }
+        #work-special ul li span{
+            color: #555!important;
+        }
+
     </style>
 </head>
 <body>
@@ -220,77 +235,24 @@
             <h1>Sobre Mi</h1>
             @foreach($users as $user)
 
-                <p>
-                    {{$user->descriptionAboutme}}
-                </p>
+                <div id="prueba-12">
+                    {!!$user->descriptionAboutme!!}
+                </div>
             @endforeach
 
             <h2>¿Qué hago?</h2>
-            <div class="work">
-                <div class="workbox">
+            <div class="work" id="work-special">
+                @foreach($aboutmes as $aboutme)
+                    <div class="workbox">
                     <div class="icon">
-                        <img src="{{asset('user/imagen/ui.svg')}}" alt="ui">
+                        <img src="{{asset('storage/'. $aboutme->logo_skill)}}" alt="ui">
                     </div>
                     <div class="desc">
-                        <h3>UI/UX Designer</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipiscing elit per cursus,
-                            facilisi est ligula nunc magnis parturient netus sapien. Lacus dignissim
-                            cras fringilla aenean sodales purus hendrerit metus ullamcorper, lacinia
-                            vehicula ultrices non nulla pellentesque tempor morbi. Turpis nam dictumst
-                            libero egestas faucibus luctus sollicitudin volutpat eget felis malesuada
-                            curae consequat, tempus quis ornare at iaculis quisque facilisis eu
-                        </p>
+                        <h3>{{$aboutme->title_skill}}</h3>
+                        {!! $aboutme->description_skill !!}
                     </div>
                 </div>
-                <div class="workbox">
-                    <div class="icon">
-                        <img src="{{asset('user/imagen/app.svg')}}" alt="ui">
-                    </div>
-                    <div class="desc">
-                        <h3>App Developement</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipiscing elit per cursus,
-                            facilisi est ligula nunc magnis parturient netus sapien. Lacus dignissim
-                            cras fringilla aenean sodales purus hendrerit metus ullamcorper, lacinia
-                            vehicula ultrices non nulla pellentesque tempor morbi. Turpis nam dictumst
-                            libero egestas faucibus luctus sollicitudin volutpat eget felis malesuada
-                            curae consequat, tempus quis ornare at iaculis quisque facilisis eu
-                        </p>
-                    </div>
-                </div>
-                <div class="workbox">
-                    <div class="icon">
-                        <img src="{{asset('user/imagen/api.svg')}}" alt="ui">
-                    </div>
-                    <div class="desc">
-                        <h3>Api designer</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipiscing elit per cursus,
-                            facilisi est ligula nunc magnis parturient netus sapien. Lacus dignissim
-                            cras fringilla aenean sodales purus hendrerit metus ullamcorper, lacinia
-                            vehicula ultrices non nulla pellentesque tempor morbi. Turpis nam dictumst
-                            libero egestas faucibus luctus sollicitudin volutpat eget felis malesuada
-                            curae consequat, tempus quis ornare at iaculis quisque facilisis eu
-                        </p>
-                    </div>
-                </div>
-                <div class="workbox">
-                    <div class="icon">
-                        <img src="{{asset('user/imagen/web.svg')}}" alt="ui">
-                    </div>
-                    <div class="desc">
-                        <h3>Web Designer</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipiscing elit per cursus,
-                            facilisi est ligula nunc magnis parturient netus sapien. Lacus dignissim
-                            cras fringilla aenean sodales purus hendrerit metus ullamcorper, lacinia
-                            vehicula ultrices non nulla pellentesque tempor morbi. Turpis nam dictumst
-                            libero egestas faucibus luctus sollicitudin volutpat eget felis malesuada
-                            curae consequat, tempus quis ornare at iaculis quisque facilisis eu
-                        </p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

@@ -59,7 +59,7 @@ class UsersController extends Controller
         return redirect()->route('admin.users.index')->with('success', 'El usuario se ha creado correctamente.');
     }
 
-    public function edit(string $user)
+    public function edit(User $user)
     {
         User::all();
         return view('admin.users.index', compact('user'));
@@ -134,6 +134,6 @@ class UsersController extends Controller
             Storage::delete($user->cv);
         }
         $user->delete();
-        return redirect()->route('users.index')->with('success', 'El usuario se ha eliminado correctamente.');
+        return redirect()->route('admin.users.index')->with('success', 'El usuario se ha eliminado correctamente.');
     }
 }
