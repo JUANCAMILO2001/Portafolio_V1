@@ -59,7 +59,7 @@
                                                 <i class="fa fa-trash" aria-hidden="true"></i>
                                             </a>
                                             <a title="Detalle" data-toggle="modal" data-target="#modalShowQuehago_{{ $loop->iteration }}" class="btn btn-success space-icon-option-special">
-                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                                <i class="fa-solid fa-eye"></i>
                                             </a>
                                         </div>
                                     </td>
@@ -118,7 +118,7 @@
                                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Detalle de Skill {{$aboutme->title_skill}}</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">Detalles de Skill - {{$aboutme->title_skill}}</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
@@ -128,9 +128,9 @@
                                                     <div class="col-3">
                                                         <img class="img-fluid"  src="{{asset('storage/'. $aboutme->logo_skill)}}" alt="">
                                                     </div>
-                                                    <div class="col-9" style="overflow-y: scroll; max-height: 100px;">
+                                                    <div class="col-9" >
                                                         <label >{{$aboutme->title_skill}}</label><br>
-                                                        <label >{{$aboutme->color_skill}}</label><br>
+                                                        <div style="width: 50px; height: 25px; border-radius: 10px; background-color: {{$aboutme->color_skill}};"></div>
                                                         {!! $aboutme->description_skill !!}
 
                                                     </div>

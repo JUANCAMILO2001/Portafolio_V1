@@ -11,8 +11,11 @@ class Education extends Model
     protected $table = 'education';
     protected $primarykey = 'id';
     protected  $fillable = [
-        'dates',
+        'institution',
         'title',
+        'date_init',
+        'date_finish',
+        'activity',
         'description',
         'color',
     ];
