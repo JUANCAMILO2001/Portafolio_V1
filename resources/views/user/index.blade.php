@@ -262,35 +262,153 @@
             <h1>Resumen</h1>
             <div class="work-2" style="display: grid;">
                 <div>
+                    <style>
+                        .hero__cta:hover{
+                            background-color: #fff;
+                            color: #1e3c72;
+                        }
+                        .modal__container{
+                            margin: auto;
+                            width: 90%;
+                            max-width: 600px;
+                            max-height: 90%;
+                            background-color: #fff;
+                            border-radius: 6px;
+                            padding: 3em 2.5em;
+                            display: grid;
+                            grid-auto-columns: 100%;
+                            transform: var(--transform);
+                            transition:var(--transition);
+                        }
+                        .modal__container p{
+                            font-weight: bold;
+                            text-align: center;
+                            margin: 0;
+                        }
+                        .modal__container h2{
+                            color: black;
+                            text-align: center;
+                        }
+                        .modal{
+                            position: fixed;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            background-color: #111111bd;
+                            display: flex;
+                            opacity: 0;
+                            pointer-events: none;
+                            transition: opacity .6s .9s;
+                        }
+                        .p-special-model-content-1{
+                            font-size: 18.5px;
+                        }
+                        .p-special-model-content{
+                            font-size: 15px;
+                            margin-bottom: 15px!important;
+                        }
+                        .modal-content-special{
+                            overflow-y: scroll;
+                            max-height: 250px;
+                            min-height: 250px;
+                            padding: ;
+                        }
+                        .modal-content-special p{
+                            text-align: start;
+                        }
+                        .modal-content-special label{
+                            color: black;
+                            font-size: 15px;
+                            font-weight: 600;
+                        }
+                        .modal__close{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 25px;
+                            height: 25px;
+                            border-radius: 50%;
+                            background: #171717;
+                            color: #fff;
+                            float: right;
+                            margin-right: -3px;
+                            margin-top: -2px;
+                        }
+                        .close-modal-special{
+                            position: absolute;
+                            width: 100%;
+                        }
+
+
+                    </style>
                     <h3 style="color: #fff;"><i class="fa-solid fa-user-graduate resumen-icon-special"></i> Educación</h3>
-                    <div class="workbox-2">
-                        <div class="desc-2">
-                            <p >
-                                Sena
-                            </p>
-                            <p >
-                                23-05-2023
-                            </p>
-                            <p>Finalizado</p>
-                            <p>
-                                Tecnologo analisis y desarrollo sistemas de informacion
-                            </p>
+                    @foreach($educations as $education)
+                        <div class="workbox-2 hero__cta hero__cta_{{ $loop->iteration }}">
+                            <div class="desc-2">
+                                <p >
+                                    {{$education->institution}}
+                                </p>
+                                <p >
+                                    {{$education->title}}
+                                </p>
+                                <p >
+                                    <span title="Fecha de inicio">{{$education->date_init}}</span> • <span title="Fecha Final">{{$education->date_finish}}</span>
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="workbox-2">
-                        <div class="desc-2">
-                            <p>
-                                Instituto Tecnico industrial Piloto
-                            </p>
-                            <p >
-                                23-05-2023
-                            </p>
-                            <p>Finalizado</p>
-                            <p >
-                                Bachiller Tecnico Industial
-                            </p>
-                        </div>
-                    </div>
+                        <section class="modal modal_{{ $loop->iteration }}">
+                            <div class="modal__container">
+                                <div class="close-modal-special">
+                                    <a href="#" class="modal__close modal__close_{{ $loop->iteration }}">X</a>
+                                </div>
+                                <h2>{{$education->institution}}</h2>
+                                <p class="p-special-model-content-1">{{$education->title}}</p>
+                                <p class="p-special-model-content">
+                                    <span title="Fecha de inicio">{{$education->date_init}}</span> • <span title="Fecha Final">{{$education->date_finish}}</span>
+                                </p>
+                                <div class="modal-content-special">
+                                    <label>Actividades:</label>
+                                    <div>
+                                        {!! $education->activity !!}
+                                    </div>
+                                    <label>Descripción:</label>
+                                    <div>
+                                        {!! $education->description !!}
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <style>
+                            .modal_{{ $loop->iteration }} {
+                                --transform: translateY(-100vh);
+                                --transition: transform .8s;
+                            }
+                            .modal--show_{{ $loop->iteration }}{
+                                opacity: 1;
+                                pointer-events: unset;
+                                transition: opacity .6s;
+                                --transform: translateY(0);
+                                --transition: transform .8s .8s;
+                                z-index: 100;
+                            }
+                        </style>
+                        <script>
+                            const openModal_{{ $loop->iteration }} = document.querySelector('.hero__cta_{{ $loop->iteration }}');
+                            const modal_{{ $loop->iteration }} = document.querySelector('.modal_{{ $loop->iteration }}');
+                            const closeModal_{{ $loop->iteration }} = document.querySelector('.modal__close_{{ $loop->iteration }}');
+
+                            openModal_{{ $loop->iteration }}.addEventListener('click', (e)=>{
+                                e.preventDefault();
+                                modal_{{ $loop->iteration }}.classList.add('modal--show_{{ $loop->iteration }}');
+                            });
+
+                            closeModal_{{ $loop->iteration }}.addEventListener('click', (e)=>{
+                                e.preventDefault();
+                                modal_{{ $loop->iteration }}.classList.remove('modal--show_{{ $loop->iteration }}');
+                            });
+                        </script>
+                    @endforeach
                 </div>
                 <div>
                     <h3 style="color: #fff;"><i class="fa-solid fa-briefcase resumen-icon-special"></i> Experiencia</h3>
@@ -374,17 +492,13 @@
     </div>
 </div>
 
-
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
 <script>
     $(document).ready(function(){
-
         $(window).on('scroll', function(){
-
             var link = $('.asidebar a.dot');
             var top = $(window).scrollTop();
-
             $('.sec').each(function(){
                 var id = $(this).attr('id');
                 var height = $(this).height();
@@ -395,9 +509,9 @@
                 }
             });
         });
-
-
     });
+
+
 </script>
 </body>
 </html>

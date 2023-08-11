@@ -28,7 +28,7 @@ class SocialnetworksController extends Controller
         return redirect()->route('admin.socialnetworks.index')->with('success', 'La red social se ha creado correctamente.');
     }
 
-    public function edit(string $socialnetwork)
+    public function edit(Socialnetwork $socialnetwork)
     {
         Socialnetwork::all();
         return view('admin.socialnetworks.index', compact('socialnetwork'));

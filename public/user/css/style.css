@@ -12,7 +12,6 @@
 }
 *{
     box-sizing: border-box;
-    padding: 0;
     margin: 0;
     text-decoration: none;
     font-family: poppins,sans-serif;
@@ -599,6 +598,8 @@ body{
     top: 4px;
     margin-left: 5px;
   }
+
+
 
 /*Resposive Design*/
 @media(max-width:768px) {

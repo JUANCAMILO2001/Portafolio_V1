@@ -7,6 +7,7 @@ use App\Http\Controllers\User\IndexController;
 use App\Http\Controllers\Admin\User\UsersController;
 use App\Http\Controllers\Admin\Socialnetworks\SocialnetworksController;
 use App\Http\Controllers\Admin\Aboutme\AboutmesController;
+use App\Http\Controllers\Admin\Education\EducationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,4 +39,5 @@ Route::middleware([
     Route::resource('admin/users', UsersController::class)->names('admin.users');
     Route::resource('admin/socialnetworks', SocialnetworksController::class)->names('admin.socialnetworks');
     Route::resource('admin/aboutmes', AboutmesController::class)->names('admin.aboutmes');
+    Route::resource('admin/educations', EducationController::class)->names('admin.educations');
 });

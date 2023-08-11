@@ -51,12 +51,14 @@
     <div class="row">
         <h2 class="col-12">Resumen</h2>
         <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box">
-                <span class="info-box-icon bg-success"><i class="far fa-envelope"></i></span>
-                <div class="info-box-content">
-                    <span class="info-box-text">Educación</span>
+            <a href="{{route('admin.educations.index')}}">
+                <div class="info-box">
+                    <span class="info-box-icon bg-success"><i class="far fa-envelope"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Educación</span>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="col-md-3 col-sm-6 col-12">
             <div class="info-box">
