@@ -30,7 +30,6 @@ class EducationController extends Controller
     }
     public function edit(Education $education)
     {
-        Education::all();
         return view('admin.educations.index', compact('education'));
     }
     public function update(Request $request, Education $education)

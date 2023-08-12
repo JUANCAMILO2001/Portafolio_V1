@@ -13,5 +13,6 @@ class Workingskill extends Model
     protected  $fillable = [
         'title',
         'porcentage',
+        'color',
     ];
 }

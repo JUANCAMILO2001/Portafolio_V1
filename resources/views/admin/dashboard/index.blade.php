@@ -42,7 +42,7 @@
                     <h3>Qué Hago</h3>
                 </div>
                 <div class="icon">
-                    <i class="fa fa-heart nav-icon"></i>
+                    <i class="fa-solid fa-bolt nav-icon"></i>
                 </div>
                 <a href="{{route('admin.aboutmes.index')}}" class="small-box-footer">Ir ¡Ahora! <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -53,7 +53,7 @@
         <div class="col-md-3 col-sm-6 col-12">
             <a href="{{route('admin.educations.index')}}">
                 <div class="info-box">
-                    <span class="info-box-icon bg-success"><i class="far fa-envelope"></i></span>
+                    <span class="info-box-icon bg-success"><i class="fa-solid fa-user-graduate"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text">Educación</span>
                     </div>
@@ -61,33 +61,39 @@
             </a>
         </div>
         <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box">
-                <span class="info-box-icon bg-success"><i class="far fa-envelope"></i></span>
-                <div class="info-box-content">
-                    <span class="info-box-text">Expercia Laboral</span>
+            <a href="{{route('admin.experiences.index')}}">
+                <div class="info-box">
+                    <span class="info-box-icon bg-success"><i class="fa-solid fa-briefcase"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Expercia Laboral</span>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
+        <!--
         <div class="col-md-3 col-sm-6 col-12">
             <div class="info-box">
-                <span class="info-box-icon bg-success"><i class="far fa-envelope"></i></span>
+                <span class="info-box-icon bg-success"><i class="fa-solid fa-comments"></i></span>
                 <div class="info-box-content">
                     <span class="info-box-text">Cursos</span>
                 </div>
             </div>
         </div>
+        -->
         <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box">
-                <span class="info-box-icon bg-success"><i class="far fa-envelope"></i></span>
-                <div class="info-box-content">
-                    <span class="info-box-text">Working Skill</span>
+            <a href="{{route('admin.workingskills.index')}}">
+                <div class="info-box">
+                    <span class="info-box-icon bg-success"><i class="fa-solid fa-fire"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Working Skill</span>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="col-md-3 col-sm-6 col-12">
-            <a href="">
+            <a href="{{route('admin.knowledges.index')}}">
                 <div class="info-box">
-                    <span class="info-box-icon bg-success"><i class="far fa-envelope"></i></span>
+                    <span class="info-box-icon bg-success"><i class="fa-solid fa-paper-plane"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text">Conocimientos</span>
                     </div>

@@ -143,7 +143,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="{{route('admin.aboutmes.index')}}" class="nav-link @if($_SERVER['REQUEST_URI'] === "/admin/aboutmes") active @endif">
-                            <i class="fa fa-heart nav-icon"></i>
+                            <i class="fa-solid fa-bolt nav-icon"></i>
                             <p>
                                 Qué Hago
                             </p>
@@ -151,7 +151,7 @@
                     </li>
                     <!--Menu de Resumen-->
                     <li class="nav-item">
-                        <a href="#" class="nav-link  @if($_SERVER['REQUEST_URI'] === "/admin/educations" || $_SERVER['REQUEST_URI'] === "/admin/experiences") active @endif">
+                        <a href="#" class="nav-link  @if($_SERVER['REQUEST_URI'] === "/admin/educations" || $_SERVER['REQUEST_URI'] === "/admin/experiences" || $_SERVER['REQUEST_URI'] === "/admin/workingskills" || $_SERVER['REQUEST_URI'] === "/admin/knowledges") active @endif ">
                             <i class="fa fa-file nav-icon" aria-hidden="true"></i>
                             <p>
                                 Resumen
@@ -171,20 +171,22 @@
                                     <p>Experiencia Laboral</p>
                                 </a>
                             </li>
+                            <!--
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Cursos</p>
                                 </a>
                             </li>
+                            -->
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{route('admin.workingskills.index')}}" class="nav-link @if($_SERVER['REQUEST_URI'] === "/admin/workingskills") active @endif">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Working Skills</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{route('admin.knowledges.index')}}" class="nav-link @if($_SERVER['REQUEST_URI'] === "/admin/knowledges") active @endif">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Conocimientos</p>
                                 </a>
@@ -197,41 +199,8 @@
                             <i class="fas fa-briefcase nav-icon "></i>
                             <p>
                                 Portafolio
-                                <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Educación</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Experiencia Laboral</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Cursos</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Working Skills</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Conocimientos</p>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                     <!--Menu de Contact-->
                     <li class="nav-item">
@@ -239,41 +208,8 @@
                             <i class="nav-icon far fa-envelope"></i>
                             <p>
                                 Contactos
-                                <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Educación</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Experiencia Laboral</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Cursos</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Working Skills</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Conocimientos</p>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                 </ul>
             </nav>

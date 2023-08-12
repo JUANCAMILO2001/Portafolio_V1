@@ -10,90 +10,52 @@
     <link rel="stylesheet" href="{{asset('user/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('user/css/fontawesome-free-6.4.0-web/css/all.min.css')}}">
     <style>
+        @foreach($workingskills as $workingskill)
         :root{
-            --porcent: 180deg;
-            --porcent-n: -180deg;
-            --title-porcent: "Laravel";
-            --number-porcent: "100%";
-            --porcent-2: 30deg;
-            --porcent-n-2: -30deg;
-            --title-porcent-2: "Angular";
-            --number-porcent-2: "20%";
+            --porcent_{{$workingskill->id}}: {{$workingskill->porcentage . 'deg'}};
+            --porcent-n_{{$workingskill->id}}: {{'-'.$workingskill->porcentage . 'deg'}};
+            --title-porcent_{{$workingskill->id}}: "{{$workingskill->title}}";
+            --color-porcent_{{$workingskill->id}}: {{$workingskill->color}};
+            --number-porcent_{{$workingskill->id}}: "{{ round(($workingskill->porcentage / 180) * 100) }}%";
         }
-        .circular-progress {
-            &,
-            &::before,
-            &::after {
-                 width: 10rem;
-                 height: 10rem;
-                 border-radius: 50%;
-            }
-            margin: auto;
-            position: relative;
-            transform: rotate(var(--porcent));
-            background: linear-gradient(0deg, #fff 50%, #5f5f5f 50%);
-            &::before,
-            &::after {
-                 position: absolute;
-                 top: 0;
-                 left: 0;
-                 text-align: center;
-                 color: #fff;
-            }
-            &::before {
-                 content: var(--title-porcent);
-                 background: #1d1d1d content-box;
-                 border-radius: 50%;
-                 padding: 0.5em;
-                 box-sizing: border-box;
-                 font-size: 1.5rem;
-                 line-height: 7rem;
-                 transform: rotate(var(--porcent-n));
-            }
-            &::after {
-                 content: var(--number-porcent);
-                 background: linear-gradient(transparent 50%, #1d1d1d 50%);
-                 transform: scale(1.1) rotate(var(--porcent-n));
-                 line-height: 11rem;
-            }
+        .circular-progress_{{$workingskill->id}} {
+        &,
+        &::before,
+        &::after {
+             width: 10rem;
+             height: 10rem;
+             border-radius: 50%;
+         }
+        margin: auto;
+        position: relative;
+        transform: rotate(var(--porcent_{{$workingskill->id}}));
+        background: linear-gradient(0deg, var(--color-porcent_{{$workingskill->id}}) 50%, #5f5f5f 50%);
+        &::before,
+        &::after {
+             position: absolute;
+             top: 0;
+             left: 0;
+             text-align: center;
+             color: #fff;
+         }
+        &::before {
+             content: var(--title-porcent_{{$workingskill->id}});
+             background: #1d1d1d content-box;
+             border-radius: 50%;
+             padding: 0.5em;
+             box-sizing: border-box;
+             font-size: 1.5rem;
+             line-height: 7rem;
+             transform: rotate(var(--porcent-n_{{$workingskill->id}}));
+         }
+        &::after {
+             content: var(--number-porcent_{{$workingskill->id}});
+             background: linear-gradient(transparent 50%, #1d1d1d 50%);
+             transform: scale(1.1) rotate(var(--porcent-n_{{$workingskill->id}}));
+             line-height: 11rem;
+         }
         }
-        .circular-progress-2 {
-            &,
-            &::before,
-            &::after {
-                 width: 10rem;
-                 height: 10rem;
-                 border-radius: 50%;
-             }
-            margin: auto;
-            position: relative;
-            transform: rotate(var(--porcent-2));
-            background: linear-gradient(0deg, red 50%, #5f5f5f 50%);
-            &::before,
-            &::after {
-                position: absolute;
-                top: 0;
-                left: 0;
-                text-align: center;
-                color: #fff;
-            }
-            &::before {
-                 content: var(--title-porcent-2);
-                 background: #1d1d1d content-box;
-                 border-radius: 50%;
-                 padding: 0.5em;
-                 box-sizing: border-box;
-                 font-size: 1.5rem;
-                 line-height: 7rem;
-                 transform: rotate(var(--porcent-n-2));
-             }
-            &::after {
-                 content: var(--number-porcent-2);
-                 background: linear-gradient(transparent 50%, #1d1d1d 50%);
-                 transform: scale(1.1) rotate(var(--porcent-n-2));
-                 line-height: 11rem;
-             }
-        }
+        @endforeach
         @foreach($socialnetworks as $socialnetwork)
             #color-icon-user-{{$socialnetwork->id}}{
                 color: {{$socialnetwork->color}};
@@ -403,22 +365,23 @@
             <div class="div-skills-about-special">
                 <div class="work-2 work-2-about-special">
                     <div class="skills-content-about-special">
-                        <h3 >Working Skills</h3>
+                        <h3>Working Skills</h3>
                         <div class="skills-about-info-special">
-                            <div class="skills-about-info-special-woking">
-                                <div class="circular-progress"></div>
-                            </div>
-                            <div class="skills-about-info-special-woking">
-                                <div class="circular-progress-2"></div>
-                            </div>
+                            @foreach($workingskills as $workingskill)
+                                <div class="skills-about-info-special-woking">
+                                    <div class="circular-progress_{{$workingskill->id}}"></div>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="skills-content-about-special">
                         <h3>Conocimientos</h3>
                         <div class="skills-about-info-special">
-                            <div class="skills-conocimientos-about-special">
-                                <span>C#</span>
-                            </div>
+                            @foreach($knowledges as $knowledge)
+                                <div class="skills-conocimientos-about-special">
+                                    <span>{{$knowledge->name}}</span>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>

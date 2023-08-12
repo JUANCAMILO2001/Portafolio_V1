@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\aboutme\Aboutme;
 use App\Models\education\Education;
 use App\Models\experience\Experience;
+use App\Models\knowledge\Knowledge;
 use App\Models\socialnetwok\Socialnetwork;
 use App\Models\User;
+use App\Models\workingskill\Workingskill;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -18,12 +20,16 @@ class IndexController extends Controller
         $aboutmes = Aboutme::all();
         $educations = Education::all();
         $experiences = Experience::all();
+        $workingskills = Workingskill::all();
+        $knowledges = Knowledge::all();
         return view('user.index',compact(
             'users',
             'socialnetworks',
             'aboutmes',
             'educations',
             'experiences',
+            'workingskills',
+            'knowledges',
         ));
     }
 }

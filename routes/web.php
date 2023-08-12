@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\Socialnetworks\SocialnetworksController;
 use App\Http\Controllers\Admin\Aboutme\AboutmesController;
 use App\Http\Controllers\Admin\Education\EducationController;
 use App\Http\Controllers\Admin\Experience\ExperiencesController;
+use App\Http\Controllers\Admin\Workigskill\WorkingskillsController;
+use App\Http\Controllers\Admin\Knowledge\KnowledgesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,4 +44,6 @@ Route::middleware([
     Route::resource('admin/aboutmes', AboutmesController::class)->names('admin.aboutmes');
     Route::resource('admin/educations', EducationController::class)->names('admin.educations');
     Route::resource('admin/experiences', ExperiencesController::class)->names('admin.experiences');
+    Route::resource('admin/workingskills', WorkingskillsController::class)->names('admin.workingskills');
+    Route::resource('admin/knowledges', KnowledgesController::class)->names('admin.knowledges');
 });
