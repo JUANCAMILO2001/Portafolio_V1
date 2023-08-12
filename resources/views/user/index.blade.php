@@ -103,141 +103,7 @@
                 color: #ddd;
             }
         @endforeach
-        #prueba-12 span{
-            color: #555!important;
-        }
-        #work-special p{
-            color: #555!important;
-        }
-        #work-special p span{
-            color: #555!important;
-        }
-        #work-special ul li span{
-            color: #555!important;
-        }
-        .work-2-about-special{
-            display: grid;
-        }
-        /*ESTILOS DEL MODAL*/
-        .hero__cta:hover{
-            background-color: #fff;
-            color: #1e3c72;
-        }
-        .modal__container{
-            margin: auto;
-            width: 90%;
-            max-width: 600px;
-            max-height: 90%;
-            background-color: #fff;
-            border-radius: 6px;
-            padding: 3em 2.5em;
-            display: grid;
-            grid-auto-columns: 100%;
-            transform: var(--transform);
-            transition:var(--transition);
-        }
-        .modal__container p{
-            font-weight: bold;
-            text-align: center;
-            margin: 0;
-        }
-        .modal__container h2{
-            color: black;
-            text-align: center;
-        }
-        .modal{
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #111111bd;
-            display: flex;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity .6s .9s;
-        }
-        .p-special-model-content-1{
-            font-size: 18.5px;
-        }
-        .p-special-model-content{
-            font-size: 15px;
-            margin-bottom: 15px!important;
-        }
-        .modal-content-special{
-            overflow-y: scroll;
-            max-height: 250px;
-            min-height: 250px;
-        }
-        .modal-content-special p{
-            text-align: start;
-        }
-        .modal-content-special label{
-            color: black;
-            font-size: 15px;
-            font-weight: 600;
-        }
-        .modal__close{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            background: #171717;
-            color: #fff;
-            float: right;
-            margin-right: -3px;
-            margin-top: -2px;
-        }
-        .close-modal-special{
-            position: absolute;
-            width: 100%;
-        }
-        /*FIN ESTILOS DEL MODAL*/
-        .title-work-2-about-special{
-            color: #fff;
-        }
-        .div-skills-about-special{
-            width: 100%;
-            background-color: #1d1d1d;
-            padding: 1rem;
-            border-radius: 10px;
-        }
-        .skills-content-about-special{
-            width: 100%;
-        }
-        .skills-content-about-special h3{
-            color: #fff;
-            margin-bottom: 20px;
-        }
-        .skills-about-info-special{
-            display: flex;
-            flex-wrap: wrap;
-        }
-        .skills-about-info-special-woking{
-            width: 50%;
-        }
-        .skills-conocimientos-about-special{
-            margin-bottom: 10px;
-            margin-right: 5px;
-            min-height: 35px;
-            padding: 0.5rem;
-            min-width: 60px;
-            background: #302e2e;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 10px;
-        }
-        .skills-conocimientos-about-special span{
-            font-weight: bold;
-            letter-spacing: 2px;
-            color: #fff;
-        }
-    </style>
-    @foreach($educations as $education)
-        <style>
+        @foreach($educations as $education)
             .modal_{{ $loop->iteration }} {
                 --transform: translateY(-100vh);
                 --transition: transform .8s;
@@ -250,10 +116,8 @@
                 --transition: transform .8s .8s;
                 z-index: 100;
             }
-        </style>
-    @endforeach
-    @foreach($experiences as $experience)
-        <style>
+        @endforeach
+        @foreach($experiences as $experience)
             .modalExperiences_{{ $loop->iteration }} {
                 --transform: translateY(-100vh);
                 --transition: transform .8s;
@@ -266,8 +130,8 @@
                 --transition: transform .8s .8s;
                 z-index: 100;
             }
-        </style>
-    @endforeach
+        @endforeach
+    </style>
 </head>
 <body>
 <div class="container">
