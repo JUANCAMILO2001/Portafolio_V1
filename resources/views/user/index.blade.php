@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -93,10 +92,17 @@
                 z-index: 100;
             }
         @endforeach
+
     </style>
 </head>
 <body>
+<div class="cursor"></div>
 <div class="container">
+    <div id="whatsapp">
+        <a href="https://wa.link/c6d6sz" target="_blank" id="toggle1" class="wtsapp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
     @foreach($users as $user)
         <div class="profile-p1">
         <div class="profile-card">
@@ -202,13 +208,13 @@
                         <h4>Resumen</h4>
                     </div>
                 </a>
-                <a href="#portafolio">
+                <a href="#portafolio-link">
                     <div class="link-nav link-nav-2"  id="nav-icon-color-3">
                         <i class="fas fa-briefcase"></i>
                         <h4>Portafolio</h4>
                     </div>
                 </a>
-                <a href="#contact">
+                <a href="#contacto-link">
                     <div class="link-nav link-nav-2"  id="nav-icon-color-4">
                         <i class="fa-solid fa-address-book"></i>
                         <h4>Contacto</h4>
@@ -388,8 +394,81 @@
             </div>
         </div>
     </div>
+    <div class="special-section sec" id="portafolio-link">
+        <!-- Resumen section -->
+        <div class="about-2">
+            <h1>Portafolio</h1>
+            <div class="div-skills-about-special">
+                <div class="work-2 work-2-about-special">
+                    <div class="skills-content-about-special">
+                        <h3>Working Skills</h3>
+                        <div class="skills-about-info-special">
+                            @foreach($workingskills as $workingskill)
+                                <div class="skills-about-info-special-woking">
+                                    <div class="circular-progress_{{$workingskill->id}}"></div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="skills-content-about-special">
+                        <h3>Conocimientos</h3>
+                        <div class="skills-about-info-special">
+                            @foreach($knowledges as $knowledge)
+                                <div class="skills-conocimientos-about-special">
+                                    <span>{{$knowledge->name}}</span>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="special-section sec" id="contacto-link">
+        <!-- Resumen section -->
+        <div class="about-2">
+            <h1>Contactame</h1>
+            <div class="div-skills-about-special">
+                <div class="work-2 work-2-about-special">
+                    <div class="skills-content-about-special">
+                        <h3>Working Skills</h3>
+                        <div class="skills-about-info-special">
+                            @foreach($workingskills as $workingskill)
+                                <div class="skills-about-info-special-woking">
+                                    <div class="circular-progress_{{$workingskill->id}}"></div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="skills-content-about-special">
+                        <h3>Conocimientos</h3>
+                        <div class="skills-about-info-special">
+                            @foreach($knowledges as $knowledge)
+                                <div class="skills-conocimientos-about-special">
+                                    <span>{{$knowledge->name}}</span>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script src="{{asset('user/js/jquery.min.js')}}"></script>
+<script>
+    //Funcion del cursor
+    $(document).ready(function() {
+        var $cursor = $('.cursor');
+        $(window).on('mousemove', function(e) {
+            var mouseX = e.clientX;
+            var mouseY = e.clientY;
+            $cursor.css({
+                transform: `translate(${mouseX}px, ${mouseY}px)`
+            });
+        });
+    });
+</script>
 <script>
     $(document).ready(function(){
         $(window).on('scroll', function(){
