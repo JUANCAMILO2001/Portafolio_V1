@@ -21,78 +21,78 @@
             --number-porcent-2: "20%";
         }
         .circular-progress {
-        &,
-        &::before,
-        &::after {
-             width: 10rem;
-             height: 10rem;
-             border-radius: 50%;
-         }
-        margin: auto;
-        position: relative;
-        transform: rotate(var(--porcent));
-        background: linear-gradient(0deg, #fff 50%, #5f5f5f 50%);
-        &::before,
-        &::after {
-             position: absolute;
-             top: 0;
-             left: 0;
-             text-align: center;
-             color: #fff;
-         }
-        &::before {
-             content: var(--title-porcent);
-             background: #1d1d1d content-box;
-             border-radius: 50%;
-             padding: 0.5em;
-             box-sizing: border-box;
-             font-size: 1.5rem;
-             line-height: 7rem;
-             transform: rotate(var(--porcent-n));
-         }
-        &::after {
-             content: var(--number-porcent);
-             background: linear-gradient(transparent 50%, #1d1d1d 50%);
-             transform: scale(1.1) rotate(var(--porcent-n));
-             line-height: 11rem;
-         }
+            &,
+            &::before,
+            &::after {
+                 width: 10rem;
+                 height: 10rem;
+                 border-radius: 50%;
+            }
+            margin: auto;
+            position: relative;
+            transform: rotate(var(--porcent));
+            background: linear-gradient(0deg, #fff 50%, #5f5f5f 50%);
+            &::before,
+            &::after {
+                 position: absolute;
+                 top: 0;
+                 left: 0;
+                 text-align: center;
+                 color: #fff;
+            }
+            &::before {
+                 content: var(--title-porcent);
+                 background: #1d1d1d content-box;
+                 border-radius: 50%;
+                 padding: 0.5em;
+                 box-sizing: border-box;
+                 font-size: 1.5rem;
+                 line-height: 7rem;
+                 transform: rotate(var(--porcent-n));
+            }
+            &::after {
+                 content: var(--number-porcent);
+                 background: linear-gradient(transparent 50%, #1d1d1d 50%);
+                 transform: scale(1.1) rotate(var(--porcent-n));
+                 line-height: 11rem;
+            }
         }
         .circular-progress-2 {
-        &,
-        &::before,
-        &::after {
-             width: 10rem;
-             height: 10rem;
-             border-radius: 50%;
-         }
-        margin: auto;
-        position: relative;
-        transform: rotate(var(--porcent-2));
-        background: linear-gradient(0deg, red 50%, #5f5f5f 50%);
-        &::before,
-        &::after {
-             position: absolute;
-             top: 0;
-             left: 0;
-             text-align: center;
-             color: #fff;
-         }
-        &::before {
-             content: var(--title-porcent-2);
-             background: #1d1d1d content-box;
-             border-radius: 50%;
-             padding: 0.5em;
-             box-sizing: border-box;
-             font-size: 1.5rem;
-             line-height: 7rem;
-             transform: rotate(var(--porcent-n-2));
-         }
-        &::after {
-             content: var(--number-porcent-2);
-             background: linear-gradient(transparent 50%, #1d1d1d 50%);
-             transform: scale(1.1) rotate(var(--porcent-n-2));
-             line-height: 11rem;
-         }
+            &,
+            &::before,
+            &::after {
+                 width: 10rem;
+                 height: 10rem;
+                 border-radius: 50%;
+             }
+            margin: auto;
+            position: relative;
+            transform: rotate(var(--porcent-2));
+            background: linear-gradient(0deg, red 50%, #5f5f5f 50%);
+            &::before,
+            &::after {
+                position: absolute;
+                top: 0;
+                left: 0;
+                text-align: center;
+                color: #fff;
+            }
+            &::before {
+                 content: var(--title-porcent-2);
+                 background: #1d1d1d content-box;
+                 border-radius: 50%;
+                 padding: 0.5em;
+                 box-sizing: border-box;
+                 font-size: 1.5rem;
+                 line-height: 7rem;
+                 transform: rotate(var(--porcent-n-2));
+             }
+            &::after {
+                 content: var(--number-porcent-2);
+                 background: linear-gradient(transparent 50%, #1d1d1d 50%);
+                 transform: scale(1.1) rotate(var(--porcent-n-2));
+                 line-height: 11rem;
+             }
         }
         @foreach($socialnetworks as $socialnetwork)
             #color-icon-user-{{$socialnetwork->id}}{
@@ -106,7 +106,6 @@
         #prueba-12 span{
             color: #555!important;
         }
-
         #work-special p{
             color: #555!important;
         }
@@ -116,8 +115,159 @@
         #work-special ul li span{
             color: #555!important;
         }
-
+        .work-2-about-special{
+            display: grid;
+        }
+        /*ESTILOS DEL MODAL*/
+        .hero__cta:hover{
+            background-color: #fff;
+            color: #1e3c72;
+        }
+        .modal__container{
+            margin: auto;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90%;
+            background-color: #fff;
+            border-radius: 6px;
+            padding: 3em 2.5em;
+            display: grid;
+            grid-auto-columns: 100%;
+            transform: var(--transform);
+            transition:var(--transition);
+        }
+        .modal__container p{
+            font-weight: bold;
+            text-align: center;
+            margin: 0;
+        }
+        .modal__container h2{
+            color: black;
+            text-align: center;
+        }
+        .modal{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #111111bd;
+            display: flex;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .6s .9s;
+        }
+        .p-special-model-content-1{
+            font-size: 18.5px;
+        }
+        .p-special-model-content{
+            font-size: 15px;
+            margin-bottom: 15px!important;
+        }
+        .modal-content-special{
+            overflow-y: scroll;
+            max-height: 250px;
+            min-height: 250px;
+        }
+        .modal-content-special p{
+            text-align: start;
+        }
+        .modal-content-special label{
+            color: black;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .modal__close{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #171717;
+            color: #fff;
+            float: right;
+            margin-right: -3px;
+            margin-top: -2px;
+        }
+        .close-modal-special{
+            position: absolute;
+            width: 100%;
+        }
+        /*FIN ESTILOS DEL MODAL*/
+        .title-work-2-about-special{
+            color: #fff;
+        }
+        .div-skills-about-special{
+            width: 100%;
+            background-color: #1d1d1d;
+            padding: 1rem;
+            border-radius: 10px;
+        }
+        .skills-content-about-special{
+            width: 100%;
+        }
+        .skills-content-about-special h3{
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        .skills-about-info-special{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .skills-about-info-special-woking{
+            width: 50%;
+        }
+        .skills-conocimientos-about-special{
+            margin-bottom: 10px;
+            margin-right: 5px;
+            min-height: 35px;
+            padding: 0.5rem;
+            min-width: 60px;
+            background: #302e2e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+        .skills-conocimientos-about-special span{
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #fff;
+        }
     </style>
+    @foreach($educations as $education)
+        <style>
+            .modal_{{ $loop->iteration }} {
+                --transform: translateY(-100vh);
+                --transition: transform .8s;
+            }
+            .modal--show_{{ $loop->iteration }}{
+                opacity: 1;
+                pointer-events: unset;
+                transition: opacity .6s;
+                --transform: translateY(0);
+                --transition: transform .8s .8s;
+                z-index: 100;
+            }
+        </style>
+    @endforeach
+    @foreach($experiences as $experience)
+        <style>
+            .modalExperiences_{{ $loop->iteration }} {
+                --transform: translateY(-100vh);
+                --transition: transform .8s;
+            }
+            .modal--showExperiences_{{ $loop->iteration }}{
+                opacity: 1;
+                pointer-events: unset;
+                transition: opacity .6s;
+                --transform: translateY(0);
+                --transition: transform .8s .8s;
+                z-index: 100;
+            }
+        </style>
+    @endforeach
 </head>
 <body>
 <div class="container">
@@ -197,6 +347,16 @@
                         <span>Resumen</span>
                     </a>
                 </li>
+                <li>
+                    <a href="#portafolio-link" class="dot" data-scroll="portafolio-link">
+                        <span>Portafolio</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#contacto-link" class="dot" data-scroll="contacto-link">
+                        <span>Contacto</span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>
@@ -234,12 +394,10 @@
         <div class="about sec" id="about-me-link">
             <h1>Sobre Mi</h1>
             @foreach($users as $user)
-
                 <div id="prueba-12">
                     {!!$user->descriptionAboutme!!}
                 </div>
             @endforeach
-
             <h2>¿Qué hago?</h2>
             <div class="work" id="work-special">
                 @foreach($aboutmes as $aboutme)
@@ -260,89 +418,11 @@
         <!-- Resumen section -->
         <div class="about-2">
             <h1>Resumen</h1>
-            <div class="work-2" style="display: grid;">
+            <div class="work-2 work-2-about-special">
                 <div>
-                    <style>
-                        .hero__cta:hover{
-                            background-color: #fff;
-                            color: #1e3c72;
-                        }
-                        .modal__container{
-                            margin: auto;
-                            width: 90%;
-                            max-width: 600px;
-                            max-height: 90%;
-                            background-color: #fff;
-                            border-radius: 6px;
-                            padding: 3em 2.5em;
-                            display: grid;
-                            grid-auto-columns: 100%;
-                            transform: var(--transform);
-                            transition:var(--transition);
-                        }
-                        .modal__container p{
-                            font-weight: bold;
-                            text-align: center;
-                            margin: 0;
-                        }
-                        .modal__container h2{
-                            color: black;
-                            text-align: center;
-                        }
-                        .modal{
-                            position: fixed;
-                            top: 0;
-                            left: 0;
-                            right: 0;
-                            bottom: 0;
-                            background-color: #111111bd;
-                            display: flex;
-                            opacity: 0;
-                            pointer-events: none;
-                            transition: opacity .6s .9s;
-                        }
-                        .p-special-model-content-1{
-                            font-size: 18.5px;
-                        }
-                        .p-special-model-content{
-                            font-size: 15px;
-                            margin-bottom: 15px!important;
-                        }
-                        .modal-content-special{
-                            overflow-y: scroll;
-                            max-height: 250px;
-                            min-height: 250px;
-                            padding: ;
-                        }
-                        .modal-content-special p{
-                            text-align: start;
-                        }
-                        .modal-content-special label{
-                            color: black;
-                            font-size: 15px;
-                            font-weight: 600;
-                        }
-                        .modal__close{
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            width: 25px;
-                            height: 25px;
-                            border-radius: 50%;
-                            background: #171717;
-                            color: #fff;
-                            float: right;
-                            margin-right: -3px;
-                            margin-top: -2px;
-                        }
-                        .close-modal-special{
-                            position: absolute;
-                            width: 100%;
-                        }
-
-
-                    </style>
-                    <h3 style="color: #fff;"><i class="fa-solid fa-user-graduate resumen-icon-special"></i> Educación</h3>
+                    <h3 class="title-work-2-about-special">
+                        <i class="fa-solid fa-user-graduate resumen-icon-special"></i> Educación
+                    </h3>
                     @foreach($educations as $education)
                         <div class="workbox-2 hero__cta hero__cta_{{ $loop->iteration }}">
                             <div class="desc-2">
@@ -379,39 +459,14 @@
                                 </div>
                             </div>
                         </section>
-                        <style>
-                            .modal_{{ $loop->iteration }} {
-                                --transform: translateY(-100vh);
-                                --transition: transform .8s;
-                            }
-                            .modal--show_{{ $loop->iteration }}{
-                                opacity: 1;
-                                pointer-events: unset;
-                                transition: opacity .6s;
-                                --transform: translateY(0);
-                                --transition: transform .8s .8s;
-                                z-index: 100;
-                            }
-                        </style>
-                        <script>
-                            const openModal_{{ $loop->iteration }} = document.querySelector('.hero__cta_{{ $loop->iteration }}');
-                            const modal_{{ $loop->iteration }} = document.querySelector('.modal_{{ $loop->iteration }}');
-                            const closeModal_{{ $loop->iteration }} = document.querySelector('.modal__close_{{ $loop->iteration }}');
-
-                            openModal_{{ $loop->iteration }}.addEventListener('click', (e)=>{
-                                e.preventDefault();
-                                modal_{{ $loop->iteration }}.classList.add('modal--show_{{ $loop->iteration }}');
-                            });
-
-                            closeModal_{{ $loop->iteration }}.addEventListener('click', (e)=>{
-                                e.preventDefault();
-                                modal_{{ $loop->iteration }}.classList.remove('modal--show_{{ $loop->iteration }}');
-                            });
-                        </script>
                     @endforeach
                 </div>
                 <div>
-                    <h3 style="color: #fff;"><i class="fa-solid fa-briefcase resumen-icon-special"></i> Experiencia</h3>
+                    <h3 class="title-work-2-about-special">
+                        <i class="fa-solid fa-briefcase resumen-icon-special"></i> Experiencia
+                    </h3>
+                    <!--
+
                     <div class="workbox-2">
                         <div class="desc-2 ">
                             <p >
@@ -438,51 +493,67 @@
 
                         </div>
                     </div>
-                    <div class="workbox-2">
-                        <div class="desc-2">
-                            <p >
-                                Ferreteria caball
-                            </p>
-                            <p >
-                                23-05-2023
-                            </p>
-                            <p >
-                                Finalizado
-                            </p>
-                            <p>
-                                Auxiliar de Bodega
-                            </p>
+
+
+                    -->
+                    @foreach($experiences as $experience)
+                        <div class="workbox-2 hero__cta hero__ctaExperiences_{{ $loop->iteration }}">
+                            <div class="desc-2 ">
+                                <p >
+                                    {{$experience->cargo}}
+                                </p>
+                                <p >
+                                    {{$experience->nombre_empresa}}
+                                </p>
+                                <p >
+                                    {{$experience->tipo_empleo}}
+                                </p>
+                                <p >
+                                    {{$experience->tipo_ubicacion}}
+                                </p>
+                            </div>
                         </div>
-                    </div>
+                        <section class="modal modalExperiences_{{ $loop->iteration }}">
+                            <div class="modal__container">
+                                <div class="close-modal-special">
+                                    <a href="#" class="modal__close modal__closeExperiences_{{ $loop->iteration }}">X</a>
+                                </div>
+                                <h2>{{$experience->cargo}}</h2>
+                                <p class="p-special-model-content-1">{{$experience->nombre_empresa}}</p>
+                                <p class="p-special-model-content-1">{{$experience->tipo_empleo}} • {{$experience->tipo_ubicacion}}</p>
+                                <p class="p-special-model-content-1">{{$experience->ubicacion}}</p>
+                                <p class="p-special-model-content">
+                                    <span title="Fecha de inicio">{{$experience->date_init}}</span> - <span title="Fecha Final">{{$experience->date_finish}}</span>
+                                </p>
+                                <div class="modal-content-special">
+                                    <label>Descripcion del cargo:</label>
+                                    <div>
+                                        {!! $experience->description !!}
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    @endforeach
                 </div>
             </div>
-            <div style="width: 100%; background-color: #1d1d1d; padding: 1rem; border-radius: 10px;">
-                <div class="work-2" style="display: grid;">
-                    <div style="width: 100%;">
-                        <h3 style="color: #fff; margin-bottom: 20px;">Working Skills</h3>
-                        <div style="display: flex; flex-wrap: wrap;">
-                            <div style="width: 50%;">
+            <div class="div-skills-about-special">
+                <div class="work-2 work-2-about-special">
+                    <div class="skills-content-about-special">
+                        <h3 >Working Skills</h3>
+                        <div class="skills-about-info-special">
+                            <div class="skills-about-info-special-woking">
                                 <div class="circular-progress"></div>
                             </div>
-                            <div style="width: 50%;">
+                            <div class="skills-about-info-special-woking">
                                 <div class="circular-progress-2"></div>
                             </div>
                         </div>
                     </div>
-                    <div style="width: 100%;">
-                        <h3 style="color: #fff; margin-bottom: 20px;">Conocimientos</h3>
-                        <div style="width:100%; display: flex; flex-wrap: wrap;">
-                            <div style="margin-bottom: 10px; margin-right: 5px; min-height: 35px; padding: 0.5rem; min-width: 60px; background: #302e2e; display: flex; justify-content: center; align-items: center; border-radius: 10px;">
-                                <span style="font-weight: bold; letter-spacing: 2px; color: #fff;" >C#</span>
-                            </div>
-                            <div style="margin-bottom: 10px; margin-right: 5px; min-height: 35px; padding: 0.5rem; min-width: 60px; background: #302e2e; display: flex; justify-content: center; align-items: center; border-radius: 10px;">
-                                <span style="font-weight: bold; letter-spacing: 2px; color: #fff;" >Docker</span>
-                            </div>
-                            <div style="margin-bottom: 10px; margin-right: 5px; min-height: 35px; padding: 0.5rem; min-width: 60px; background: #302e2e; display: flex; justify-content: center; align-items: center; border-radius: 10px;">
-                                <span style="font-weight: bold; letter-spacing: 2px; color: #fff;" >Mysql</span>
-                            </div>
-                            <div style="margin-bottom: 10px; margin-right: 5px; min-height: 35px; padding: 0.5rem; min-width: 60px; background: #302e2e; display: flex; justify-content: center; align-items: center; border-radius: 10px;">
-                                <span style="font-weight: bold; letter-spacing: 2px; color: #fff;" >Posgres</span>
+                    <div class="skills-content-about-special">
+                        <h3>Conocimientos</h3>
+                        <div class="skills-about-info-special">
+                            <div class="skills-conocimientos-about-special">
+                                <span>C#</span>
                             </div>
                         </div>
                     </div>
@@ -491,9 +562,7 @@
         </div>
     </div>
 </div>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-
 <script>
     $(document).ready(function(){
         $(window).on('scroll', function(){
@@ -510,8 +579,40 @@
             });
         });
     });
-
-
 </script>
+@foreach($educations as $education)
+    <script>
+        const openModal_{{ $loop->iteration }} = document.querySelector('.hero__cta_{{ $loop->iteration }}');
+        const modal_{{ $loop->iteration }} = document.querySelector('.modal_{{ $loop->iteration }}');
+        const closeModal_{{ $loop->iteration }} = document.querySelector('.modal__close_{{ $loop->iteration }}');
+
+        openModal_{{ $loop->iteration }}.addEventListener('click', (e)=>{
+            e.preventDefault();
+            modal_{{ $loop->iteration }}.classList.add('modal--show_{{ $loop->iteration }}');
+        });
+
+        closeModal_{{ $loop->iteration }}.addEventListener('click', (e)=>{
+            e.preventDefault();
+            modal_{{ $loop->iteration }}.classList.remove('modal--show_{{ $loop->iteration }}');
+        });
+    </script>
+@endforeach
+@foreach($experiences as $experience)
+    <script>
+        const openModalExperiences_{{ $loop->iteration }} = document.querySelector('.hero__ctaExperiences_{{ $loop->iteration }}');
+        const modalExperiences_{{ $loop->iteration }} = document.querySelector('.modalExperiences_{{ $loop->iteration }}');
+        const closeModalExperiences_{{ $loop->iteration }} = document.querySelector('.modal__closeExperiences_{{ $loop->iteration }}');
+
+        openModalExperiences_{{ $loop->iteration }}.addEventListener('click', (e)=>{
+            e.preventDefault();
+            modalExperiences_{{ $loop->iteration }}.classList.add('modal--showExperiences_{{ $loop->iteration }}');
+        });
+
+        closeModalExperiences_{{ $loop->iteration }}.addEventListener('click', (e)=>{
+            e.preventDefault();
+            modalExperiences_{{ $loop->iteration }}.classList.remove('modal--showExperiences_{{ $loop->iteration }}');
+        });
+    </script>
+@endforeach
 </body>
 </html>

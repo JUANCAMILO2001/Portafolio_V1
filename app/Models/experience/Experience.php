@@ -11,8 +11,13 @@ class Experience extends Model
     protected $table = 'experiences';
     protected $primarykey = 'id';
     protected  $fillable = [
-        'dates',
-        'title',
+        'cargo',
+        'tipo_empleo',
+        'nombre_empresa',
+        'ubicacion',
+        'tipo_ubicacion',
+        'date_init',
+        'date_finish',
         'description',
         'color',
     ];

@@ -151,7 +151,7 @@
                     </li>
                     <!--Menu de Resumen-->
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="#" class="nav-link  @if($_SERVER['REQUEST_URI'] === "/admin/educations" || $_SERVER['REQUEST_URI'] === "/admin/experiences") active @endif">
                             <i class="fa fa-file nav-icon" aria-hidden="true"></i>
                             <p>
                                 Resumen
@@ -159,14 +159,14 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
+                            <li class="nav-item ">
+                                <a href="{{route('admin.educations.index')}}" class="nav-link @if($_SERVER['REQUEST_URI'] === "/admin/educations") active @endif">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Educación</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{route('admin.experiences.index')}}" class="nav-link @if($_SERVER['REQUEST_URI'] === "/admin/experiences") active @endif">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Experiencia Laboral</p>
                                 </a>
