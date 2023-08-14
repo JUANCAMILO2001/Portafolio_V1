@@ -1070,8 +1070,8 @@ body{
 }
 @media(max-width: 443px){
     .about-2 {
-        max-width: 90%;
-        min-width: 90%;
+        max-width: 92%;
+        min-width: 92%;
         padding: 2rem 1rem;
     }
     .about-2 .work-2{
