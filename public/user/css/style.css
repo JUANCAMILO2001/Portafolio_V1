@@ -915,14 +915,26 @@ body{
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    padding-bottom: 20px;
+    padding-bottom: 1px;
 }
 .content-modal-jobs-special .p-special-model-content-Jobs{
     width: 50%;
     padding-bottom: 11px;
     text-align: start;
 }
-
+.content-modal-jobs-special .p-special-model-content-Jobs span{
+    font-weight: 500;
+}
+.content-job-special-scroll{
+    max-height: 317px;
+    overflow-y: scroll;
+}
+.spcial-content-job-modal{
+    margin-bottom: 10px;
+}
+.spcial-content-job-modal p{
+    font-weight: 500;
+}
 .content-modal-jobs-special .p-special-model-content-Jobs .ir-span{
     float: right;
 }
@@ -1057,6 +1069,36 @@ body{
     }
 }
 @media(max-width:375px) {
+    .asidebar ul li{
+        width: 121px;
+    }
+    .asidebar ul li .dot span{
+        padding: 10px 11px;
+        font-size: 13px;
+    }
+    .container-portafolio .card-portafolio{
+        width: 271px;
+        height: 278px;
+    }
+    .container-portafolio .card-portafolio:hover{
+        height: 358px;
+    }
+    .container-portafolio .card-portafolio .imgBX-Portafolio{
+        width: 244px;
+        height: 175px;
+    }
+    .container-portafolio .card-portafolio .content-portafolio{
+        top: 217px;
+    }
+    .container-portafolio .card-portafolio:hover .content-portafolio{
+        top: 80px;
+    }
+    .content-principal-form-contact{
+        padding: 0px 28px 30px 5px;
+    }
+    .modal__container h2{
+        font-size: 26px;
+    }
     .cursor{
         display: none;
     }

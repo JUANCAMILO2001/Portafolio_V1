@@ -304,11 +304,16 @@
 
                                 <div class="modal-content-special">
                                     <label>Actividades:</label>
-                                    <div>
+                                    <style>
+                                        .special-div-content-education span{
+                                            font-weight: 500;
+                                        }
+                                    </style>
+                                    <div class="special-div-content-education">
                                         {!! $education->activity !!}
                                     </div>
                                     <label>Descripción:</label>
-                                    <div>
+                                    <div class="special-div-content-education">
                                         {!! $education->description !!}
                                     </div>
                                 </div>
@@ -389,7 +394,7 @@
                                 </p>
                                 <div class="modal-content-special">
                                     <label>Descripcion del cargo:</label>
-                                    <div>
+                                    <div class="special-div-content-education">
                                         {!! $experience->description !!}
                                     </div>
                                 </div>
@@ -459,22 +464,26 @@
                             <h2>{{$job->tag}}</h2>
                             <div class="content-modal-jobs-special">
                                 <p class="p-special-model-content-Jobs">
-                                    <i class="fa-regular fa-file-lines"></i> Proyecto: {{$job->title}}
+                                    <i class="fa-regular fa-file-lines"></i> Proyecto: <span>{{$job->title}}</span>
                                 </p>
                                 <p class="p-special-model-content-Jobs">
-                                    <i class="fa-regular fa-user"></i> Cliente: {{$job->client}}
+                                    <i class="fa-regular fa-user"></i> Cliente: <span>{{$job->client}}</span>
                                 </p>
                                 <p class="p-special-model-content-Jobs">
-                                    <i class="fa-solid fa-code"></i> Lenguaje: {{$job->lenguajes}}
+                                    <i class="fa-solid fa-code"></i> Lenguaje: <span>{{$job->lenguajes}}</span>
                                 </p>
                                 <p class="p-special-model-content-Jobs" title="{{$job->url}}">
-                                    <i class="fa-solid fa-up-right-from-square"></i> Ver: {{substr($job->url,0,19)}}... <a
+                                    <i class="fa-solid fa-up-right-from-square"></i> Ver: <span>{{substr($job->url,0,19)}}...</span> <a
                                         href="{{$job->url}}" target="_blank"><span class="ir-span" title="Ir al sitio"><i class="fa-regular fa-eye"></i></span></a>
                                 </p>
                             </div>
-                            {!! $job->description !!}
-                            <div class="modal-img-jobs-special">
-                                <img src="{{asset('storage/' . $job->imagen)}}" alt="{{$job->title}}">
+                            <div class="content-job-special-scroll">
+                                <div class="spcial-content-job-modal">
+                                    {!! $job->description !!}
+                                </div>
+                                <div class="modal-img-jobs-special">
+                                    <img src="{{asset('storage/' . $job->imagen)}}" alt="{{$job->title}}">
+                                </div>
                             </div>
                         </div>
                     </section>
