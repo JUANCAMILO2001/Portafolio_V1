@@ -155,6 +155,88 @@
                                 </div>
                                 <div class="modal fade" id="modalShowExperiences_{{ $loop->iteration }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Detalles de la Educación</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                    <div class="row">
+                                                        <div class="col-12 col-md-12">
+                                                            <div class="form-group">
+                                                                <label for="cargo">Cargo:</label>
+                                                                <input disabled type="text" value="{{$experience->cargo}}" class="form-control form-control-border" name="cargo" id="cargo" placeholder="Escriba su cargo">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-12">
+                                                            <div class="form-group">
+                                                                <label for="tipo_empleo">Tipo de empleo</label>
+                                                                <select disabled class="custom-select form-control-border" name="tipo_empleo" id="tipo_empleo">
+                                                                    <option value="{{$experience->tipo_empleo}}" selected >{{$experience->tipo_empleo}}</option>
+                                                                    <option value=""  disabled>Selecciona una opción</option>
+                                                                    <option value="Jornada completa">Jornada completa</option>
+                                                                    <option value="Jornada parcial">Jornada parcial</option>
+                                                                    <option value="Autónomo">Autónomo</option>
+                                                                    <option value="Profesional independiente">Profesional independiente</option>
+                                                                    <option value="Contrato temporal">Contrato temporal</option>
+                                                                    <option value="Contrato de prácticas">Contrato de prácticas</option>
+                                                                    <option value="Contrato de formación">Contrato de formación</option>
+                                                                    <option value="Temporal">Temporal</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-12">
+                                                            <div class="form-group">
+                                                                <label for="nombre_empresa">Nombre de la empresa:</label>
+                                                                <input disabled type="text" value="{{$experience->nombre_empresa}}" class="form-control form-control-border" name="nombre_empresa" id="nombre_empresa" placeholder="Escriba el nombre de la empresa">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="ubicacion">Ubicación</label>
+                                                                <input disabled type="text" value="{{$experience->ubicacion}}" class="form-control form-control-border" name="ubicacion" id="ubicacion" placeholder="Escriba la ubicación de la empresa">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="tipo_ubicacion">Tipo de ubicación:</label>
+                                                                <select disabled class="custom-select form-control-border" name="tipo_ubicacion" id="tipo_ubicacion">
+                                                                    <option value="{{$experience->tipo_ubicacion}}">{{$experience->tipo_ubicacion}}</option>
+                                                                    <option disabled>Seleccionar</option>
+                                                                    <option value="Híbrido">Híbrido</option>
+                                                                    <option value="Remoto">Remoto</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="date_init">Fecha de Incio:</label>
+                                                                <input disabled type="date" value="{{$experience->date_init}}" class="form-control form-control-border" name="date_init" id="date_init">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="date_finish">Fecha de Final:</label>
+                                                                <input disabled type="date" value="{{$experience->date_finish}}" class="form-control form-control-border" name="date_finish" id="date_finish">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="color">Color:</label>
+                                                                <input disabled type="color" value="{{$experience->color}}" class="form-control form-control-border" name="color" id="color">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-12">
+                                                            <div class="form-group">
+                                                                <label>activity</label>
+                                                               {!! $experience->description !!}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 

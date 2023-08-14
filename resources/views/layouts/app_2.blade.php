@@ -195,7 +195,7 @@
                     </li>
                     <!--Menu de Portafolio-->
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{route('admin.jobs.index')}}" class="nav-link  @if($_SERVER['REQUEST_URI'] === "/admin/jobs") active @endif">
                             <i class="fas fa-briefcase nav-icon "></i>
                             <p>
                                 Portafolio

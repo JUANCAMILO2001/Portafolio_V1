@@ -93,6 +93,21 @@
             }
         @endforeach
 
+         @foreach($jobs as $job)
+            .modalJobs_{{ $loop->iteration }} {
+            --transform: translateY(-100vh);
+            --transition: transform .8s;
+        }
+        .modal--showJobs_{{ $loop->iteration }}{
+            opacity: 1;
+            pointer-events: unset;
+            transition: opacity .6s;
+            --transform: translateY(0);
+            --transition: transform .8s .8s;
+            z-index: 100;
+        }
+        @endforeach
+
     </style>
 </head>
 <body>
@@ -398,71 +413,99 @@
         <!-- Resumen section -->
         <div class="about-2">
             <h1>Portafolio</h1>
-            <div class="div-skills-about-special">
-                <div class="work-2 work-2-about-special">
-                    <div class="skills-content-about-special">
-                        <h3>Working Skills</h3>
-                        <div class="skills-about-info-special">
-                            @foreach($workingskills as $workingskill)
-                                <div class="skills-about-info-special-woking">
-                                    <div class="circular-progress_{{$workingskill->id}}"></div>
-                                </div>
-                            @endforeach
+            <div class="container-portafolio">
+                @foreach($jobs as $job)
+                    <div class="card-portafolio" style="--clr:{{$job->color}};">
+                        <div class="imgBX-Portafolio">
+                            <img src="{{asset('storage/' . $job->imagen)}}" alt="">
+                        </div>
+                        <div class="content-portafolio">
+                            <h2>{{$job->title}}</h2>
+                            <?php
+                            $description = $job->description;
+                            $maxWords = 34; // Número máximo de palabras que deseas mostrar
+                            $words = explode(' ', strip_tags($description));
+                            $limitedDescription = implode(' ', array_slice($words, 0, $maxWords));
+                            if (count($words) > $maxWords) {
+                                $limitedDescription .= '...';
+                            }
+                            echo $limitedDescription;
+                            ?><br>
+                            <div class="hero__ctaJobs_{{ $loop->iteration }}">
+                                <a href="#">Ver</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="skills-content-about-special">
-                        <h3>Conocimientos</h3>
-                        <div class="skills-about-info-special">
-                            @foreach($knowledges as $knowledge)
-                                <div class="skills-conocimientos-about-special">
-                                    <span>{{$knowledge->name}}</span>
-                                </div>
-                            @endforeach
+                    <section class="modal modalJobs modalJobs_{{ $loop->iteration }}">
+                        <div class="modal__container">
+                            <div class="close-modal-special">
+                                <a href="#" class="modal__close modal__closeJobs_{{ $loop->iteration }}">X</a>
+                            </div>
+                            <h2>{{$job->tag}}</h2>
+                            <div class="content-modal-jobs-special">
+                                <p class="p-special-model-content-Jobs">
+                                    <i class="fa-regular fa-file-lines"></i> Proyecto: {{$job->title}}
+                                </p>
+                                <p class="p-special-model-content-Jobs">
+                                    <i class="fa-regular fa-user"></i> Cliente: {{$job->client}}
+                                </p>
+                                <p class="p-special-model-content-Jobs">
+                                    <i class="fa-solid fa-code"></i> Lenguaje: {{$job->lenguajes}}
+                                </p>
+                                <p class="p-special-model-content-Jobs" title="{{$job->url}}">
+                                    <i class="fa-solid fa-up-right-from-square"></i> Ver: {{substr($job->url,0,19)}}... <a
+                                        href="{{$job->url}}" target="_blank"><span class="ir-span" title="Ir al sitio"><i class="fa-regular fa-eye"></i></span></a>
+                                </p>
+                            </div>
+                            {!! $job->description !!}
+                            <div class="modal-img-jobs-special">
+                                <img src="{{asset('storage/' . $job->imagen)}}" alt="{{$job->title}}">
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </section>
+                @endforeach
             </div>
         </div>
     </div>
     <div class="special-section sec" id="contacto-link">
-        <!-- Resumen section -->
         <div class="about-2">
-            <h1>Contactame</h1>
-            <div class="div-skills-about-special">
-                <div class="work-2 work-2-about-special">
-                    <div class="skills-content-about-special">
-                        <h3>Working Skills</h3>
-                        <div class="skills-about-info-special">
-                            @foreach($workingskills as $workingskill)
-                                <div class="skills-about-info-special-woking">
-                                    <div class="circular-progress_{{$workingskill->id}}"></div>
-                                </div>
-                            @endforeach
+            <h1>Contacto</h1>
+            <div class="content-principal-form-contact">
+                <form class="form-box" action="">
+                    <div class="form-contant">
+                        <div class="input-box">
+                            <input type="text" required class="valid-input">
+                            <label>Nombre Completo:</label>
                         </div>
-                    </div>
-                    <div class="skills-content-about-special">
-                        <h3>Conocimientos</h3>
-                        <div class="skills-about-info-special">
-                            @foreach($knowledges as $knowledge)
-                                <div class="skills-conocimientos-about-special">
-                                    <span>{{$knowledge->name}}</span>
-                                </div>
-                            @endforeach
+                        <div class="input-box">
+                            <input type="email" required class="valid-input">
+                            <label>Correo Eléctronico:</label>
                         </div>
+                        <div class="input-box">
+                            <input type="text" required class="valid-input">
+                            <label>Asunto:</label>
+                        </div>
+                        <div class="input-box">
+                            <textarea name="" required class="valid-input"></textarea>
+                            <label>Mensaje:</label>
+                        </div>
+                        <button type="submit" class="send-btn">Enviar</button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
 <script src="{{asset('user/js/jquery.min.js')}}"></script>
 <script>
-    //Funcion del cursor
     $(document).ready(function() {
         var $cursor = $('.cursor');
+
         $(window).on('mousemove', function(e) {
             var mouseX = e.clientX;
             var mouseY = e.clientY;
+
+            // Actualiza la posición del cursor personalizado
             $cursor.css({
                 transform: `translate(${mouseX}px, ${mouseY}px)`
             });
@@ -483,6 +526,19 @@
                     $('.asidebar').find('[data-scroll="' + id + '"]').addClass('dot-active');
                 }
             });
+        });
+    });
+</script>
+<script>
+    const validatableInputs = document.querySelectorAll('.valid-input');
+
+    validatableInputs.forEach(input => {
+        input.addEventListener('input', function () {
+            if (input.value !== '') {
+                input.classList.add('has-content');
+            } else {
+                input.classList.remove('has-content');
+            }
         });
     });
 </script>
@@ -517,6 +573,23 @@
         closeModalExperiences_{{ $loop->iteration }}.addEventListener('click', (e)=>{
             e.preventDefault();
             modalExperiences_{{ $loop->iteration }}.classList.remove('modal--showExperiences_{{ $loop->iteration }}');
+        });
+    </script>
+@endforeach
+@foreach($jobs as $job)
+    <script>
+        const openModalJobs_{{ $loop->iteration }} = document.querySelector('.hero__ctaJobs_{{ $loop->iteration }}');
+        const modalJobs_{{ $loop->iteration }} = document.querySelector('.modalJobs_{{ $loop->iteration }}');
+        const closeModalJobs_{{ $loop->iteration }} = document.querySelector('.modal__closeJobs_{{ $loop->iteration }}');
+
+        openModalJobs_{{ $loop->iteration }}.addEventListener('click', (e)=>{
+            e.preventDefault();
+            modalJobs_{{ $loop->iteration }}.classList.add('modal--showJobs_{{ $loop->iteration }}');
+        });
+
+        closeModalJobs_{{ $loop->iteration }}.addEventListener('click', (e)=>{
+            e.preventDefault();
+            modalJobs_{{ $loop->iteration }}.classList.remove('modal--showJobs_{{ $loop->iteration }}');
         });
     </script>
 @endforeach

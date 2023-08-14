@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\aboutme\Aboutme;
 use App\Models\education\Education;
 use App\Models\experience\Experience;
+use App\Models\job\Job;
 use App\Models\knowledge\Knowledge;
 use App\Models\socialnetwok\Socialnetwork;
 use App\Models\User;
@@ -22,6 +23,7 @@ class IndexController extends Controller
         $experiences = Experience::all();
         $workingskills = Workingskill::all();
         $knowledges = Knowledge::all();
+        $jobs = Job::all();
         return view('user.index',compact(
             'users',
             'socialnetworks',
@@ -30,6 +32,7 @@ class IndexController extends Controller
             'experiences',
             'workingskills',
             'knowledges',
+            'jobs',
         ));
     }
 }

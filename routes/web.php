@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\Education\EducationController;
 use App\Http\Controllers\Admin\Experience\ExperiencesController;
 use App\Http\Controllers\Admin\Workigskill\WorkingskillsController;
 use App\Http\Controllers\Admin\Knowledge\KnowledgesController;
+use App\Http\Controllers\Admin\Job\JobsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,4 +47,5 @@ Route::middleware([
     Route::resource('admin/experiences', ExperiencesController::class)->names('admin.experiences');
     Route::resource('admin/workingskills', WorkingskillsController::class)->names('admin.workingskills');
     Route::resource('admin/knowledges', KnowledgesController::class)->names('admin.knowledges');
+    Route::resource('admin/jobs', JobsController::class)->names('admin.jobs');
 });

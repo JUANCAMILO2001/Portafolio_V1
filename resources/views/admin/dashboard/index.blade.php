@@ -111,7 +111,7 @@
                 <div class="icon">
                     <i class="fas fa-briefcase nav-icon "></i>
                 </div>
-                <a href="#" class="small-box-footer " style="color: #fff!important; ">Ir ¡Ahora! <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{route('admin.jobs.index')}}" class="small-box-footer " style="color: #fff!important; ">Ir ¡Ahora! <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->

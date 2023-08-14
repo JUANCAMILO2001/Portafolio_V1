@@ -11,10 +11,13 @@ class Job extends Model
     protected $table = 'jobs';
     protected $primarykey = 'id';
     protected  $fillable = [
-        'imagen',
-        'title',
         'tag',
+        'title',
+        'client',
+        'lenguajes',
         'url',
         'color',
+        'imagen',
+        'description',
     ];
 }

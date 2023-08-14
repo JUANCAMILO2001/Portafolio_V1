@@ -61,7 +61,6 @@ class UsersController extends Controller
 
     public function edit(User $user)
     {
-        User::all();
         return view('admin.users.index', compact('user'));
     }
 

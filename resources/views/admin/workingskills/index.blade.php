@@ -38,7 +38,7 @@
                                 <tr>
                                     <td>{{$workingskill->title}}</td>
                                     <td>{{ round(($workingskill->porcentage / 180) * 100) }}%</td>
-                                    <td>{{$workingskill->color}}</td>
+                                    <td><div style="width: 50px; height: 25px; border-radius: 8px; background: {{$workingskill->color}};"></div></td>
                                     <td>
                                         <div class="btn-group">
                                             <a title="Editar" data-toggle="modal" data-target="#modalEditEducation_{{ $loop->iteration }}" class="btn btn-warning">
@@ -54,12 +54,51 @@
                                             <a title="Eliminar" onclick="document.getElementById('eliminarWorkingskill_{{ $loop->iteration }}').submit()" class="btn btn-danger space-icon-option-special">
                                                 <i class="fa fa-trash" aria-hidden="true"></i>
                                             </a>
-                                            <a title="Detalle" data-toggle="modal" data-target="#modalShowWorkingskill_{{ $loop->iteration }}" class="btn btn-success space-icon-option-special">
-                                                <i class="fa-solid fa-eye"></i>
-                                            </a>
                                         </div>
                                     </td>
                                 </tr>
+
+                                <div class="modal fade" id="modalEditEducation_{{ $loop->iteration }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Editar Working Skill</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+
+                                                <form action="{{route('admin.workingskills.update', $workingskill)}}" method="post">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <div class="row">
+                                                        <div class="col-12 col-md-12">
+                                                            <div class="form-group">
+                                                                <label for="title">Nombre:</label>
+                                                                <input value="{{$workingskill->title}}" type="text" class="form-control form-control-border" name="title" id="title" placeholder="Escriba el nombre">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-12">
+                                                            <div class="form-group">
+                                                                <label for="porcentage">Porcentaje</label>
+                                                                <input type="range" value="{{$workingskill->porcentage}}"  min="0" max="180" class="custom-range custom-range-teal" name="porcentage" id="porcentage">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-12">
+                                                            <div class="form-group">
+                                                                <label for="color">Color:</label>
+                                                                <input type="color" value="{{$workingskill->color}}" class="form-control form-control-border" name="color" id="color">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-warning">Editar Working Skill</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             @endforeach
                             </tbody>
                         </table>
@@ -90,9 +129,9 @@
                                 </div>
                             </div>
                             <div class="col-12 col-md-12">
-                                <div class="form-group">
+                                <div class="form-group ">
                                     <label for="porcentage">Porcentaje</label>
-                                    <input type="range" value="0"  min="0" max="180" class="custom-range custom-range-teal" name="porcentage" id="porcentage">
+                                    <input type="range" value="0" min="0" max="180" class=" porcen custom-range custom-range-teal" name="porcentage" id="porcentage">
                                 </div>
                             </div>
                             <div class="col-12 col-md-12">
@@ -108,4 +147,6 @@
             </div>
         </div>
     </div>
+
 @endsection
+
