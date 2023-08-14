@@ -1068,77 +1068,97 @@ body{
         padding-bottom: 25px;
     }
 }
-@media(max-width:375px) {
-    .asidebar ul li{
-        width: 121px;
+@media(max-width: 443px){
+    .about-2 {
+        max-width: 393px;
+        min-width: 393px;
+        padding: 2rem 1rem;
     }
-    .asidebar ul li .dot span{
-        padding: 10px 11px;
-        font-size: 13px;
-    }
-    .container-portafolio .card-portafolio{
-        width: 271px;
-        height: 278px;
-    }
-    .container-portafolio .card-portafolio:hover{
-        height: 358px;
-    }
-    .container-portafolio .card-portafolio .imgBX-Portafolio{
-        width: 244px;
-        height: 175px;
-    }
-    .container-portafolio .card-portafolio .content-portafolio{
-        top: 217px;
-    }
-    .container-portafolio .card-portafolio:hover .content-portafolio{
-        top: 80px;
-    }
-    .content-principal-form-contact{
-        padding: 0px 28px 30px 5px;
-    }
-    .modal__container h2{
-        font-size: 26px;
-    }
-    .cursor{
-        display: none;
-    }
-    #whatsapp .wtsapp{
-        left: 78%;
-        font-size: 24px;
+    .about-2 .work-2{
+        display: block;
     }
     .skills-about-info-special{
         display: block;
     }
-    .skills-about-info-special-woking{
-        width: 100%;
-    }
-    .about-2{
-        max-width: 328px;
-        min-width: 328px;
-        padding: 1rem 1rem;
-    }
     .about-2 h1{
         font-size: 2.2rem;
     }
-    .about-2 .work-2{
-        grid-template-columns:auto;
+    #whatsapp .wtsapp{
+        left: 83%;
     }
-    .work-2 .workbox-2{
-        min-width: 279px;
-    }
-.work .workbox {
+}
+
+@media(max-width:375px) {
+.asidebar ul li{
+    width: 121px;
+}
+.asidebar ul li .dot span{
+    padding: 10px 11px;
+    font-size: 13px;
+}
+.container-portafolio .card-portafolio{
+    width: 271px;
+    height: 278px;
+}
+.container-portafolio .card-portafolio:hover{
+    height: 358px;
+}
+.container-portafolio .card-portafolio .imgBX-Portafolio{
+    width: 244px;
+    height: 175px;
+}
+.container-portafolio .card-portafolio .content-portafolio{
+    top: 217px;
+}
+.container-portafolio .card-portafolio:hover .content-portafolio{
+    top: 80px;
+}
+.content-principal-form-contact{
+    padding: 0px 28px 30px 5px;
+}
+.modal__container h2{
+    font-size: 26px;
+}
+.cursor{
+    display: none;
+}
+#whatsapp .wtsapp{
+    left: 78%;
+    font-size: 24px;
+}
+.skills-about-info-special{
     display: block;
 }
+.skills-about-info-special-woking{
+    width: 100%;
+}
+.about-2{
+    max-width: 328px;
+    min-width: 328px;
+    padding: 1rem 1rem;
+}
+.about-2 h1{
+    font-size: 2.2rem;
+}
+.about-2 .work-2{
+    grid-template-columns:auto;
+}
+.work-2 .workbox-2{
+    min-width: 279px;
+}
+.work .workbox {
+display: block;
+}
 .icon{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 15px;
+display: flex;
+justify-content: center;
+margin-bottom: 15px;
 }
 .icon img{
-    height: 80px;
-    width: 80px;
+height: 80px;
+width: 80px;
 }
 .fa, .fa-brands, .fa-classic, .fa-regular, .fa-sharp, .fa-solid, .fab, .far, .fas {
-    line-height: 2.4!important;
+line-height: 2.4!important;
 }
 }
