@@ -204,7 +204,7 @@
                     </li>
                     <!--Menu de Contact-->
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{route('admin.contacts.index')}}" class="nav-link  @if($_SERVER['REQUEST_URI'] === "/admin/contacts") active @endif">
                             <i class="nav-icon far fa-envelope"></i>
                             <p>
                                 Contactos

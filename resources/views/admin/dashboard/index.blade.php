@@ -124,7 +124,7 @@
                 <div class="icon">
                     <i class="nav-icon far fa-envelope"></i>
                 </div>
-                <a href="#" class="small-box-footer">Ir ¡Ahora! <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{route('admin.contacts.index')}}" class="small-box-footer">Ir ¡Ahora! <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->

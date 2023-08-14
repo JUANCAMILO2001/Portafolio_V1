@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\Experience\ExperiencesController;
 use App\Http\Controllers\Admin\Workigskill\WorkingskillsController;
 use App\Http\Controllers\Admin\Knowledge\KnowledgesController;
 use App\Http\Controllers\Admin\Job\JobsController;
+use App\Http\Controllers\Admin\Contact\ContactsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +25,7 @@ use App\Http\Controllers\Admin\Job\JobsController;
 */
 
 Route::get('/', [IndexController::class, 'index'])->name('user.index');
+Route::post('/send', [IndexController::class, 'sendContact'])->name('user.send');
 
 Route::middleware([
     'auth:sanctum',
@@ -48,4 +50,5 @@ Route::middleware([
     Route::resource('admin/workingskills', WorkingskillsController::class)->names('admin.workingskills');
     Route::resource('admin/knowledges', KnowledgesController::class)->names('admin.knowledges');
     Route::resource('admin/jobs', JobsController::class)->names('admin.jobs');
+    Route::get('admin/contacts', [ContactsController::class, 'index'])->name('admin.contacts.index');
 });

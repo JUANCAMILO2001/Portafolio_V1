@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\aboutme\Aboutme;
+use App\Models\contact\Contact;
 use App\Models\education\Education;
 use App\Models\experience\Experience;
 use App\Models\job\Job;
@@ -34,5 +35,17 @@ class IndexController extends Controller
             'knowledges',
             'jobs',
         ));
+    }
+
+    public function sendContact(Request $request){
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'asunto' => 'required',
+            'message' => 'required',
+        ]);
+        $contacts = $request->all();
+        Contact::create($contacts);
+        return redirect()->back()->with('success', '¡El mensaje se a enviado exitosamente!');
     }
 }

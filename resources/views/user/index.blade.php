@@ -170,7 +170,7 @@
                         </div>
                         <div class="content">
                             <span>Año de nacimiento:</span>
-                            <h5>{{$user->birthdate}}</h5>
+                            <h5>{{\Carbon\Carbon::parse($user->birthdate)->format('d, M, Y')}}</h5>
                         </div>
                     </div>
                 </div>
@@ -280,7 +280,7 @@
                                     {{$education->title}}
                                 </p>
                                 <p >
-                                    <span title="Fecha de inicio">{{$education->date_init}}</span> • <span title="Fecha Final">{{$education->date_finish}}</span>
+                                    <span title="Fecha de inicio">{{\Carbon\Carbon::parse($education->date_init)->format('M, Y')}}</span> • <span title="Fecha Final">{{\Carbon\Carbon::parse($education->date_finish)->format('M, Y')}}</span>
                                 </p>
                             </div>
                         </div>
@@ -292,8 +292,16 @@
                                 <h2>{{$education->institution}}</h2>
                                 <p class="p-special-model-content-1">{{$education->title}}</p>
                                 <p class="p-special-model-content">
-                                    <span title="Fecha de inicio">{{$education->date_init}}</span> • <span title="Fecha Final">{{$education->date_finish}}</span>
+                                    <?php
+                                        $startDate = \Carbon\Carbon::parse($education->date_init);
+                                        $endDate = \Carbon\Carbon::parse($education->date_finish);
+
+                                        $monthsDifference = $startDate->diffInMonths($endDate);
+                                        $yearsDifference = $startDate->diffInYears($endDate);
+                                    ?>
+                                    <span title="Fecha de inicio">{{\Carbon\Carbon::parse($education->date_init)->format('M, Y')}}</span> • <span title="Fecha Final">{{\Carbon\Carbon::parse($education->date_finish)->format('M, Y')}}</span> • <span>{{$monthsDifference . ' meses'}} @if($yearsDifference > 0) {{' y'. $yearsDifference .'años' }} @endif</span>
                                 </p>
+
                                 <div class="modal-content-special">
                                     <label>Actividades:</label>
                                     <div>
@@ -363,14 +371,21 @@
                         <section class="modal modalExperiences_{{ $loop->iteration }}">
                             <div class="modal__container">
                                 <div class="close-modal-special">
-                                    <a href="#" class="modal__close modal__closeExperiences_{{ $loop->iteration }}">X</a>
+                                    <a href="#" class="modal__close modal__closeExperiences_{{hermano si ella se quiere ir déjala que se vaya el video $loop->iteration }}">X</a>
                                 </div>
                                 <h2>{{$experience->cargo}}</h2>
                                 <p class="p-special-model-content-1">{{$experience->nombre_empresa}}</p>
                                 <p class="p-special-model-content-1">{{$experience->tipo_empleo}} • {{$experience->tipo_ubicacion}}</p>
                                 <p class="p-special-model-content-1">{{$experience->ubicacion}}</p>
                                 <p class="p-special-model-content">
-                                    <span title="Fecha de inicio">{{$experience->date_init}}</span> - <span title="Fecha Final">{{$experience->date_finish}}</span>
+                                    <?php
+                                    $startDateExperience = \Carbon\Carbon::parse($experience->date_init);
+                                    $endDateExperience = \Carbon\Carbon::parse($experience->date_finish);
+
+                                    $monthsDifferenceExperience = $startDateExperience->diffInMonths($endDateExperience);
+                                    $yearsDifferenceExperience = $startDateExperience->diffInYears($endDateExperience);
+                                    ?>
+                                    <span title="Fecha de inicio">{{\Carbon\Carbon::parse($experience->date_init)->format('M, Y')}}</span> - <span title="Fecha Final">{{\Carbon\Carbon::parse($experience->date_finish)->format('M, Y')}}</span> • <span>{{$monthsDifferenceExperience . ' meses'}} @if($yearsDifferenceExperience > 0) {{' y'. $yearsDifferenceExperience .'años' }} @endif</span>
                                 </p>
                                 <div class="modal-content-special">
                                     <label>Descripcion del cargo:</label>
@@ -471,22 +486,24 @@
         <div class="about-2">
             <h1>Contacto</h1>
             <div class="content-principal-form-contact">
-                <form class="form-box" action="">
+                <form class="form-box" action="{{route('user.send')}}" method="post">
+                    @csrf
+                    @method('post')
                     <div class="form-contant">
                         <div class="input-box">
-                            <input type="text" required class="valid-input">
+                            <input type="text" name="name" required class="valid-input">
                             <label>Nombre Completo:</label>
                         </div>
                         <div class="input-box">
-                            <input type="email" required class="valid-input">
+                            <input type="email" name="email" required class="valid-input">
                             <label>Correo Eléctronico:</label>
                         </div>
                         <div class="input-box">
-                            <input type="text" required class="valid-input">
+                            <input type="text" name="asunto" required class="valid-input">
                             <label>Asunto:</label>
                         </div>
                         <div class="input-box">
-                            <textarea name="" required class="valid-input"></textarea>
+                            <textarea name="message" required class="valid-input"></textarea>
                             <label>Mensaje:</label>
                         </div>
                         <button type="submit" class="send-btn">Enviar</button>
