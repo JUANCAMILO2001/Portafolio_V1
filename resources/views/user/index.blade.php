@@ -371,7 +371,7 @@
                         <section class="modal modalExperiences_{{ $loop->iteration }}">
                             <div class="modal__container">
                                 <div class="close-modal-special">
-                                    <a href="#" class="modal__close modal__closeExperiences_{{hermano si ella se quiere ir déjala que se vaya el video $loop->iteration }}">X</a>
+                                    <a href="#" class="modal__close modal__closeExperiences_{{ $loop->iteration }}">X</a>
                                 </div>
                                 <h2>{{$experience->cargo}}</h2>
                                 <p class="p-special-model-content-1">{{$experience->nombre_empresa}}</p>
@@ -494,18 +494,30 @@
                             <input type="text" name="name" required class="valid-input">
                             <label>Nombre Completo:</label>
                         </div>
+                        @error('name')
+                        <span class="text-danger">{{$message}}</span>
+                        @enderror
                         <div class="input-box">
                             <input type="email" name="email" required class="valid-input">
                             <label>Correo Eléctronico:</label>
                         </div>
+                        @error('email')
+                        <span class="text-danger">{{$message}}</span>
+                        @enderror
                         <div class="input-box">
                             <input type="text" name="asunto" required class="valid-input">
                             <label>Asunto:</label>
                         </div>
+                        @error('asunto')
+                        <span class="text-danger">{{$message}}</span>
+                        @enderror
                         <div class="input-box">
                             <textarea name="message" required class="valid-input"></textarea>
                             <label>Mensaje:</label>
                         </div>
+                        @error('message')
+                            <span class="text-danger">{{$message}}</span>
+                        @enderror
                         <button type="submit" class="send-btn">Enviar</button>
                     </div>
                 </form>
@@ -514,6 +526,17 @@
     </div>
 </div>
 <script src="{{asset('user/js/jquery.min.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@if(Session('success'))
+    <script>
+        Swal.fire(
+            '¡Enviado!',
+            '¡Hemos recibido tu mensaje, pronto estaremos en contacto con usted!',
+            'success'
+        )
+    </script>
+@endif
+
 <script>
     $(document).ready(function() {
         var $cursor = $('.cursor');
