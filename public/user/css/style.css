@@ -556,6 +556,7 @@ body{
     margin-left: 1rem;
     margin-bottom: 1rem;
     min-width: 320px;
+    cursor: pointer;
 }
 .shows-education-special{
     float: right;
