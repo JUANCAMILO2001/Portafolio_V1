@@ -566,6 +566,9 @@ body{
     color: #555;
     width: 100%;
 }
+.special-div-content-education span{
+    font-weight: 500;
+}
 .work-2 .workbox-2 .desc-2 h3{
     color: #f2f2f2;
     margin-bottom: 3px;
