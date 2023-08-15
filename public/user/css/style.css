@@ -556,6 +556,10 @@ body{
     margin-bottom: 1rem;
     min-width: 320px;
 }
+.shows-education-special{
+    float: right;
+    border-bottom: 2px solid #555;
+}
 .work-2 .workbox-2 .desc-2{
     color: #555;
 }
@@ -668,8 +672,12 @@ body{
 }
 .modal-content-special{
     overflow-y: scroll;
-    max-height: 250px;
-    min-height: 250px;
+    max-height: 225px;
+    min-height: 225px;
+}
+.expiences-content-scroll{
+    max-height: 200px!important;
+    min-height: 200px!important;
 }
 .modal-content-special p{
     text-align: start;

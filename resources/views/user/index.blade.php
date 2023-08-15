@@ -279,8 +279,11 @@
                                 <p class="descriptions-education-special">
                                     {{$education->title}}
                                 </p>
-                                <p >
+                                <p class="descriptions-education-special">
                                     <span title="Fecha de inicio">{{\Carbon\Carbon::parse($education->date_init)->format('M, Y')}}</span> • <span title="Fecha Final">{{\Carbon\Carbon::parse($education->date_finish)->format('M, Y')}}</span>
+                                </p>
+                                <p class="descriptions-education-special shows-education-special">
+                                    Ver más
                                 </p>
                             </div>
                         </div>
@@ -368,8 +371,11 @@
                                 <p title="Tipo Contrato" class="descriptions-education-special">
                                     {{$experience->tipo_empleo}}
                                 </p>
-                                <p title="Modalidad" >
+                                <p title="Modalidad" class="descriptions-education-special">
                                     {{$experience->tipo_ubicacion}}
+                                </p>
+                                <p class="descriptions-education-special shows-education-special">
+                                    Ver más
                                 </p>
                             </div>
                         </div>
@@ -392,7 +398,7 @@
                                     ?>
                                     <span title="Fecha de inicio">{{\Carbon\Carbon::parse($experience->date_init)->format('M, Y')}}</span> - <span title="Fecha Final">{{\Carbon\Carbon::parse($experience->date_finish)->format('M, Y')}}</span> • <span>{{$monthsDifferenceExperience . ' meses'}} @if($yearsDifferenceExperience > 0) {{' y'. $yearsDifferenceExperience .'años' }} @endif</span>
                                 </p>
-                                <div class="modal-content-special">
+                                <div class="modal-content-special expiences-content-scroll">
                                     <label>Descripcion del cargo:</label>
                                     <div class="special-div-content-education">
                                         {!! $experience->description !!}
