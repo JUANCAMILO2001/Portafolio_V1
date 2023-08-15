@@ -621,7 +621,7 @@ body{
 }
 /*ESTILOS DEL MODAL*/
 .hero__cta:hover{
-    background-color: #fff;
+    background-color: #302e2e;
     color: #1e3c72;
 }
 .modal__container{
@@ -848,8 +848,20 @@ body{
     box-shadow: 0 35px 80px rgba(0,0,0,0.15);
     transition: 0.5s;
 }
+.container-portafolio .card-portafolio .fa-arrow-left{
+    display: initial;
+}
+.container-portafolio .card-portafolio .fa-arrow-down{
+    display: none;
+}
 .container-portafolio .card-portafolio:hover{
     height: 400px;
+}
+.container-portafolio .card-portafolio:hover .fa-arrow-left{
+    display: none;
+}
+.container-portafolio .card-portafolio:hover .fa-arrow-down{
+    display: initial;
 }
 .container-portafolio .card-portafolio .imgBX-Portafolio{
     position: absolute;
@@ -961,6 +973,14 @@ body{
     object-fit: cover;
 }
 
+.title-education-special{
+    color: #fff!important;
+    margin-bottom: 10px!important;
+}
+.descriptions-education-special{
+    margin-bottom: 8px!important;
+}
+
 /*Contacto*/
 
 .content-principal-form-contact {
@@ -1019,6 +1039,9 @@ body{
 
 .text-danger{
     color: red!important;
+}
+.content-portafolio p{
+    text-align: justify;
 }
 
 /*Resposive Design*/
@@ -1094,6 +1117,24 @@ body{
     }
     .content-principal-form-contact{
         padding: 0px 9px 30px 22px;
+    }
+    .container-portafolio .card-portafolio{
+        width: 305px;
+        height: 279px;
+    }
+    .container-portafolio .card-portafolio .imgBX-Portafolio{
+        width: 263px;
+        height: 188px;
+    }
+    .container-portafolio .card-portafolio .content-portafolio{
+        top: 224px;
+    }
+    .container-portafolio .card-portafolio:hover .content-portafolio{
+        top: 100px;
+        height: 290px;
+    }
+    .skills-about-info-special-woking{
+        width: 100%;
     }
 }
 

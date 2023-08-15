@@ -273,10 +273,10 @@
                     @foreach($educations as $education)
                         <div class="workbox-2 hero__cta hero__cta_{{ $loop->iteration }}">
                             <div class="desc-2">
-                                <p >
+                                <p class="title-education-special">
                                     {{$education->institution}}
                                 </p>
-                                <p >
+                                <p class="descriptions-education-special">
                                     {{$education->title}}
                                 </p>
                                 <p >
@@ -359,16 +359,16 @@
                     @foreach($experiences as $experience)
                         <div class="workbox-2 hero__cta hero__ctaExperiences_{{ $loop->iteration }}">
                             <div class="desc-2 ">
-                                <p >
+                                <p title="Cargo" class="title-education-special">
                                     {{$experience->cargo}}
                                 </p>
-                                <p >
+                                <p title="Empresa" class="descriptions-education-special">
                                     {{$experience->nombre_empresa}}
                                 </p>
-                                <p >
+                                <p title="Tipo Contrato" class="descriptions-education-special">
                                     {{$experience->tipo_empleo}}
                                 </p>
-                                <p >
+                                <p title="Modalidad" >
                                     {{$experience->tipo_ubicacion}}
                                 </p>
                             </div>
@@ -440,17 +440,17 @@
                             <img src="{{asset('storage/' . $job->imagen)}}" alt="">
                         </div>
                         <div class="content-portafolio">
-                            <h2>{{$job->title}}</h2>
+                            <h2>{{$job->title}} <i class="fa-solid fa-arrow-left"></i> <i class="fa-solid fa-arrow-down"></i> </h2>
                             <?php
                             $description = $job->description;
-                            $maxWords = 34; // Número máximo de palabras que deseas mostrar
+                            $maxWords = 42; // Número máximo de palabras que deseas mostrar
                             $words = explode(' ', strip_tags($description));
                             $limitedDescription = implode(' ', array_slice($words, 0, $maxWords));
                             if (count($words) > $maxWords) {
                                 $limitedDescription .= '...';
                             }
-                            echo $limitedDescription;
-                            ?><br>
+                            ?>
+                            <p>{{$limitedDescription}}</p>
                             <div class="hero__ctaJobs_{{ $loop->iteration }}">
                                 <a href="#">Ver</a>
                             </div>
