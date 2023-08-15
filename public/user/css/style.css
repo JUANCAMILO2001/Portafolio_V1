@@ -1086,6 +1086,15 @@ body{
     #whatsapp .wtsapp{
         left: 83%;
     }
+    .asidebar{
+        display: none;
+    }
+    .cursor{
+        display: none;
+    }
+    .content-principal-form-contact{
+        padding: 0px 9px 30px 22px;
+    }
 }
 
 @media(max-width:375px) {
