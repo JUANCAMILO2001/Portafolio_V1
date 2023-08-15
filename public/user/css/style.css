@@ -553,6 +553,7 @@ body{
     border: 1px solid #333;
     padding: 1rem;
     margin-top: 1rem;
+    margin-left: 1rem;
     margin-bottom: 1rem;
     min-width: 320px;
 }
@@ -1144,6 +1145,9 @@ body{
     }
     .skills-about-info-special-woking{
         width: 100%;
+    }
+    .work-2 .workbox-2{
+        margin-left: 0;
     }
 }
 
